@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package io.panshi.config.srv;
+
+option java_multiple_files = true;
+
+message DescribeConfigDetailRequest {
+  string name = 1;
+}
+
+message DescribeConfigDetailResponse {
+  string greeting = 1;
+}
+
+service ConfigSrv {
+
+  // 查询配置信息
+  rpc describeConfigDetail(DescribeConfigDetailRequest) returns (DescribeConfigDetailResponse);
+}
