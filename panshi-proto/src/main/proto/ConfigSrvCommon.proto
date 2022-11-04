@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package io.panshi.config.srv;
+
+option java_package = "io.panshi.config.srv";
+option java_multiple_files = true;
+
+enum ErrCode
+{
+  INVALID_INPUT = 0;
+}
+
+message CommonResp {
+  ErrCode code = 1;
+  string message = 2;
+  string requestId = 3;
+}

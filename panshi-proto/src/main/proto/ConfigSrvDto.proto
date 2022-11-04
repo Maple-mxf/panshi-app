@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "ConfigSrvCommon.proto";
+
+package io.panshi.config.srv;
+
+option java_package = "io.panshi.config.srv";
+option java_multiple_files = true;
+
+message DescribeConfigDetailResponse {
+  string greeting = 1;
+}
+
+message DescribeConfigDetailRequest {
+  string name = 1;
+}
+
+message CreateConfigReq {
+  string key = 1;
+  string group = 2;
+  string set = 3;
+  string content = 4;
+  string contentType = 5;
+};
+
+message CreateConfigResp {
+  CommonResp cRsp = 1;
+  string id = 2;
+}
