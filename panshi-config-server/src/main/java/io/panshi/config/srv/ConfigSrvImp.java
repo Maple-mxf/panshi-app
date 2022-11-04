@@ -14,7 +14,5 @@ public final class ConfigSrvImp extends ConfigSrvGrpc.ConfigSrvImplBase {
 
     @Override
     public void createConfig(CreateConfigReq request, StreamObserver<CreateConfigResp> observer) {
-        observer.onNext();
-        observer.onCompleted();
     }
 }

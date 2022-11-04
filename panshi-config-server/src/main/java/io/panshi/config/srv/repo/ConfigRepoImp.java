@@ -12,7 +12,7 @@ import static io.panshi.config.srv.config.RepoClient.ETCD_CLIENT;
 
 public class ConfigRepoImp {
 
-    private final String
+//    private final String
 
 
     public boolean saveConfig() {
@@ -32,7 +32,7 @@ public class ConfigRepoImp {
 
     public <T> Config<T> queryConfigById(){
         KV kvClient = ETCD_CLIENT.getKVClient();
-
-        kvClient.get()
+//        kvClient.get()
+        return null;
     }
 }
