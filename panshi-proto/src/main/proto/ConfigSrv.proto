@@ -1,18 +1,15 @@
 syntax = "proto3";
+import "ConfigSrvDto.proto";
 
 package io.panshi.config.srv;
 
+option java_package = "io.panshi.config.srv";
 option java_multiple_files = true;
 
-message DescribeConfigDetailRequest {
-  string name = 1;
-}
-
-message DescribeConfigDetailResponse {
-  string greeting = 1;
-}
-
 service ConfigSrv {
+
+  // 创建配置信息
+  rpc createConfig(CreateConfigReq) returns (CreateConfigResp) ;
 
   // 查询配置信息
   rpc describeConfigDetail(DescribeConfigDetailRequest) returns (DescribeConfigDetailResponse);

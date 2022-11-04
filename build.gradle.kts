@@ -22,8 +22,6 @@ buildscript {
     }
 }
 
-
-
 repositories {
     mavenCentral()
 }
@@ -45,7 +43,67 @@ subprojects {
     apply(plugin = "idea")
     apply(plugin = "com.google.protobuf")
 
+    dependencies {
+        implementation("org.projectlombok:lombok:1.18.16")
+        implementation("com.google.guava:guava:31.1-jre")
+
+        implementation("io.grpc:grpc-netty-shaded:1.20.0")
+        implementation("io.grpc:grpc-protobuf:1.20.0")
+        implementation("io.grpc:grpc-stub:1.20.0")
+
+        annotationProcessor("org.projectlombok:lombok:1.18.16")
+        testImplementation("junit", "junit", "4.12")
+    }
+}
+
+tasks.getByName<Test>("test") {
+    useJUnitPlatform()
+}
+
+project("panshi-config-server") {
+    group = "io.panshi.config.server"
+    version = "1.0"
+
+    dependencies {
+        implementation(project(":panshi-proto"))
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0")
+        implementation("io.etcd:jetcd-core:0.7.3")
+
+    }
+}
+
+project("panshi-config-client") {
+    group = "io.panshi.config.client"
+    version = "1.0"
+    dependencies {}
+}
+
+project("panshi-grpc-etcd") {
+    group = "io.panshi.grpc.etcd"
+    version = "1.0"
+    dependencies {}
+}
+
+project("panshi-console-server") {
+    group = "io.panshi.console.server"
+    version = "1.0"
+    dependencies {
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+    }
+}
+
+project("panshi-proto") {
+    group = "io.panshi.proto"
+    version = "1.0"
+
+    dependencies {}
+
     protobuf {
+        generatedFilesBaseDir = "$projectDir/src"
+
         protoc {
             artifact = "com.google.protobuf:protoc:3.6.1"
         }
@@ -63,19 +121,6 @@ subprojects {
             }
         }
     }
-
-    dependencies {
-        implementation("org.projectlombok:lombok:1.18.16")
-        implementation("com.google.guava:guava:31.1-jre")
-
-        implementation("io.grpc:grpc-netty-shaded:1.20.0")
-        implementation("io.grpc:grpc-protobuf:1.20.0")
-        implementation("io.grpc:grpc-stub:1.20.0")
-
-        annotationProcessor("org.projectlombok:lombok:1.18.16")
-        testImplementation("junit", "junit", "4.12")
-    }
-
     idea {
         module {
             generatedSourceDirs.addAll(listOf(
@@ -84,43 +129,16 @@ subprojects {
             ))
         }
     }
-}
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
-}
+    sourceSets {
 
-project("panshi-config-server") {
-    group = "com.suiteopen.config.server"
-    version = "1.0"
+        main {
+            proto {
+                srcDir("src/main/proto")
+            }
+        }
 
-    dependencies {
-
-        implementation(project(":panshi-proto"))
-
-        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
-        // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
-
-    }
-}
-
-project("panshi-config-client") {
-    group = "com.suiteopen.config.client"
-    version = "1.0"
-    dependencies {}
-}
-
-project("panshi-grpc-etcd") {
-    group = "com.suiteopen.grpc.etcd"
-    version = "1.0"
-    dependencies {}
-}
-
-project("panshi-console-server") {
-    group = "com.suiteopen.console.server"
-    version = "1.0"
-    dependencies {
-        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        getByName("main").java.srcDirs("src/main/grpc")
+        getByName("main").java.srcDirs("src/main/java")
     }
 }
