@@ -31,9 +31,9 @@ public final class ConfigSrvCommon {
       "\n\025ConfigSrvCommon.proto\022\024io.panshi.confi" +
       "g.srv\"]\n\nCommonResp\022+\n\004code\030\001 \001(\0162\035.io.p" +
       "anshi.config.srv.ErrCode\022\017\n\007message\030\002 \001(" +
-      "\t\022\021\n\trequestId\030\003 \001(\t*\034\n\007ErrCode\022\021\n\rINVAL" +
-      "ID_INPUT\020\000B\030\n\024io.panshi.config.srvP\001b\006pr" +
-      "oto3"
+      "\t\022\021\n\trequestId\030\003 \001(\t*,\n\007ErrCode\022\021\n\rINVAL" +
+      "ID_INPUT\020\000\022\016\n\nSERVER_ERR\020\001B\030\n\024io.panshi." +
+      "config.srvP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

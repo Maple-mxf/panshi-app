@@ -1,6 +1,6 @@
 package io.panshi.config.srv.model;
 
-public enum ConfigType {
+public enum ConfigValueType {
 
     JSON,
     YAML,

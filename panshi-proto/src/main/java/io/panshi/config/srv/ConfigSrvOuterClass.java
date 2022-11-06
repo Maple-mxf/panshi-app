@@ -24,14 +24,14 @@ public final class ConfigSrvOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\017ConfigSrv.proto\022\024io.panshi.config.srv\032" +
-      "\022ConfigSrvDto.proto2\351\001\n\tConfigSrv\022]\n\014cre" +
-      "ateConfig\022%.io.panshi.config.srv.CreateC" +
-      "onfigReq\032&.io.panshi.config.srv.CreateCo" +
-      "nfigResp\022}\n\024describeConfigDetail\0221.io.pa" +
-      "nshi.config.srv.DescribeConfigDetailRequ" +
-      "est\0322.io.panshi.config.srv.DescribeConfi" +
-      "gDetailResponseB\030\n\024io.panshi.config.srvP" +
-      "\001b\006proto3"
+      "\022ConfigSrvDto.proto2\353\001\n\tConfigSrv\022e\n\014cre" +
+      "ateConfig\022).io.panshi.config.srv.CreateC" +
+      "onfigRequest\032*.io.panshi.config.srv.Crea" +
+      "teConfigResponse\022w\n\022describeConfigList\022/" +
+      ".io.panshi.config.srv.DescribeConfigList" +
+      "Request\0320.io.panshi.config.srv.DescribeC" +
+      "onfigListResponseB\030\n\024io.panshi.config.sr" +
+      "vP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

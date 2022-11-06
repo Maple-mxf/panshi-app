@@ -31,8 +31,6 @@ allprojects {
         mavenCentral()
         maven {
             setUrl("https://maven.aliyun.com/nexus/content/groups/public")
-            setUrl("https://repo.spring.io/release")
-            setUrl("https://repo.spring.io/milestone")
         }
     }
 }

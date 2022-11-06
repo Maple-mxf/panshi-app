@@ -4,18 +4,18 @@
 package io.panshi.config.srv;
 
 /**
- * Protobuf type {@code io.panshi.config.srv.CreateConfigResp}
+ * Protobuf type {@code io.panshi.config.srv.CreateConfigResponse}
  */
-public  final class CreateConfigResp extends
+public  final class CreateConfigResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.CreateConfigResp)
-    CreateConfigRespOrBuilder {
+    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.CreateConfigResponse)
+    CreateConfigResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use CreateConfigResp.newBuilder() to construct.
-  private CreateConfigResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CreateConfigResponse.newBuilder() to construct.
+  private CreateConfigResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private CreateConfigResp() {
+  private CreateConfigResponse() {
     id_ = "";
   }
 
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateConfigResp(
+  private CreateConfigResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -83,15 +83,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResp_descriptor;
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResp_fieldAccessorTable
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.panshi.config.srv.CreateConfigResp.class, io.panshi.config.srv.CreateConfigResp.Builder.class);
+            io.panshi.config.srv.CreateConfigResponse.class, io.panshi.config.srv.CreateConfigResponse.Builder.class);
   }
 
   public static final int CRSP_FIELD_NUMBER = 1;
@@ -195,10 +195,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.panshi.config.srv.CreateConfigResp)) {
+    if (!(obj instanceof io.panshi.config.srv.CreateConfigResponse)) {
       return super.equals(obj);
     }
-    io.panshi.config.srv.CreateConfigResp other = (io.panshi.config.srv.CreateConfigResp) obj;
+    io.panshi.config.srv.CreateConfigResponse other = (io.panshi.config.srv.CreateConfigResponse) obj;
 
     boolean result = true;
     result = result && (hasCRsp() == other.hasCRsp());
@@ -230,69 +230,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(byte[] data)
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(java.io.InputStream input)
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseDelimitedFrom(java.io.InputStream input)
+  public static io.panshi.config.srv.CreateConfigResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseDelimitedFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.panshi.config.srv.CreateConfigResp parseFrom(
+  public static io.panshi.config.srv.CreateConfigResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -305,7 +305,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.panshi.config.srv.CreateConfigResp prototype) {
+  public static Builder newBuilder(io.panshi.config.srv.CreateConfigResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -321,26 +321,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code io.panshi.config.srv.CreateConfigResp}
+   * Protobuf type {@code io.panshi.config.srv.CreateConfigResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.CreateConfigResp)
-      io.panshi.config.srv.CreateConfigRespOrBuilder {
+      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.CreateConfigResponse)
+      io.panshi.config.srv.CreateConfigResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResp_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResp_fieldAccessorTable
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.panshi.config.srv.CreateConfigResp.class, io.panshi.config.srv.CreateConfigResp.Builder.class);
+              io.panshi.config.srv.CreateConfigResponse.class, io.panshi.config.srv.CreateConfigResponse.Builder.class);
     }
 
-    // Construct using io.panshi.config.srv.CreateConfigResp.newBuilder()
+    // Construct using io.panshi.config.srv.CreateConfigResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -372,17 +372,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResp_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
     }
 
     @java.lang.Override
-    public io.panshi.config.srv.CreateConfigResp getDefaultInstanceForType() {
-      return io.panshi.config.srv.CreateConfigResp.getDefaultInstance();
+    public io.panshi.config.srv.CreateConfigResponse getDefaultInstanceForType() {
+      return io.panshi.config.srv.CreateConfigResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.panshi.config.srv.CreateConfigResp build() {
-      io.panshi.config.srv.CreateConfigResp result = buildPartial();
+    public io.panshi.config.srv.CreateConfigResponse build() {
+      io.panshi.config.srv.CreateConfigResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -390,8 +390,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.panshi.config.srv.CreateConfigResp buildPartial() {
-      io.panshi.config.srv.CreateConfigResp result = new io.panshi.config.srv.CreateConfigResp(this);
+    public io.panshi.config.srv.CreateConfigResponse buildPartial() {
+      io.panshi.config.srv.CreateConfigResponse result = new io.panshi.config.srv.CreateConfigResponse(this);
       if (cRspBuilder_ == null) {
         result.cRsp_ = cRsp_;
       } else {
@@ -436,16 +436,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.panshi.config.srv.CreateConfigResp) {
-        return mergeFrom((io.panshi.config.srv.CreateConfigResp)other);
+      if (other instanceof io.panshi.config.srv.CreateConfigResponse) {
+        return mergeFrom((io.panshi.config.srv.CreateConfigResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.panshi.config.srv.CreateConfigResp other) {
-      if (other == io.panshi.config.srv.CreateConfigResp.getDefaultInstance()) return this;
+    public Builder mergeFrom(io.panshi.config.srv.CreateConfigResponse other) {
+      if (other == io.panshi.config.srv.CreateConfigResponse.getDefaultInstance()) return this;
       if (other.hasCRsp()) {
         mergeCRsp(other.getCRsp());
       }
@@ -468,11 +468,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.panshi.config.srv.CreateConfigResp parsedMessage = null;
+      io.panshi.config.srv.CreateConfigResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.panshi.config.srv.CreateConfigResp) e.getUnfinishedMessage();
+        parsedMessage = (io.panshi.config.srv.CreateConfigResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -680,41 +680,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.CreateConfigResp)
+    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.CreateConfigResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.CreateConfigResp)
-  private static final io.panshi.config.srv.CreateConfigResp DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.CreateConfigResponse)
+  private static final io.panshi.config.srv.CreateConfigResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.panshi.config.srv.CreateConfigResp();
+    DEFAULT_INSTANCE = new io.panshi.config.srv.CreateConfigResponse();
   }
 
-  public static io.panshi.config.srv.CreateConfigResp getDefaultInstance() {
+  public static io.panshi.config.srv.CreateConfigResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<CreateConfigResp>
-      PARSER = new com.google.protobuf.AbstractParser<CreateConfigResp>() {
+  private static final com.google.protobuf.Parser<CreateConfigResponse>
+      PARSER = new com.google.protobuf.AbstractParser<CreateConfigResponse>() {
     @java.lang.Override
-    public CreateConfigResp parsePartialFrom(
+    public CreateConfigResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateConfigResp(input, extensionRegistry);
+      return new CreateConfigResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<CreateConfigResp> parser() {
+  public static com.google.protobuf.Parser<CreateConfigResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<CreateConfigResp> getParserForType() {
+  public com.google.protobuf.Parser<CreateConfigResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.panshi.config.srv.CreateConfigResp getDefaultInstanceForType() {
+  public io.panshi.config.srv.CreateConfigResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

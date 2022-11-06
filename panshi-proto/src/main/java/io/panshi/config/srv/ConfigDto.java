@@ -4,23 +4,24 @@
 package io.panshi.config.srv;
 
 /**
- * Protobuf type {@code io.panshi.config.srv.CreateConfigReq}
+ * Protobuf type {@code io.panshi.config.srv.ConfigDto}
  */
-public  final class CreateConfigReq extends
+public  final class ConfigDto extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.CreateConfigReq)
-    CreateConfigReqOrBuilder {
+    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.ConfigDto)
+    ConfigDtoOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use CreateConfigReq.newBuilder() to construct.
-  private CreateConfigReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ConfigDto.newBuilder() to construct.
+  private ConfigDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private CreateConfigReq() {
-    key_ = "";
+  private ConfigDto() {
     group_ = "";
     set_ = "";
+    key_ = "";
+    configValueType_ = "";
     content_ = "";
-    contentType_ = "";
+    version_ = 0L;
   }
 
   @java.lang.Override
@@ -28,7 +29,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateConfigReq(
+  private ConfigDto(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,31 +51,36 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            key_ = s;
+            group_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            group_ = s;
+            set_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            set_ = s;
+            key_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            content_ = s;
+            configValueType_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            contentType_ = s;
+            content_ = s;
+            break;
+          }
+          case 48: {
+
+            version_ = input.readInt64();
             break;
           }
           default: {
@@ -98,55 +104,21 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigReq_descriptor;
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigReq_fieldAccessorTable
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.panshi.config.srv.CreateConfigReq.class, io.panshi.config.srv.CreateConfigReq.Builder.class);
+            io.panshi.config.srv.ConfigDto.class, io.panshi.config.srv.ConfigDto.Builder.class);
   }
 
-  public static final int KEY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object key_;
-  /**
-   * <code>string key = 1;</code>
-   */
-  public java.lang.String getKey() {
-    java.lang.Object ref = key_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      key_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string key = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getKeyBytes() {
-    java.lang.Object ref = key_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      key_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int GROUP_FIELD_NUMBER = 2;
+  public static final int GROUP_FIELD_NUMBER = 1;
   private volatile java.lang.Object group_;
   /**
-   * <code>string group = 2;</code>
+   * <code>string group = 1;</code>
    */
   public java.lang.String getGroup() {
     java.lang.Object ref = group_;
@@ -161,7 +133,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string group = 2;</code>
+   * <code>string group = 1;</code>
    */
   public com.google.protobuf.ByteString
       getGroupBytes() {
@@ -177,10 +149,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SET_FIELD_NUMBER = 3;
+  public static final int SET_FIELD_NUMBER = 2;
   private volatile java.lang.Object set_;
   /**
-   * <code>string set = 3;</code>
+   * <code>string set = 2;</code>
    */
   public java.lang.String getSet() {
     java.lang.Object ref = set_;
@@ -195,7 +167,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string set = 3;</code>
+   * <code>string set = 2;</code>
    */
   public com.google.protobuf.ByteString
       getSetBytes() {
@@ -211,10 +183,78 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CONTENT_FIELD_NUMBER = 4;
+  public static final int KEY_FIELD_NUMBER = 3;
+  private volatile java.lang.Object key_;
+  /**
+   * <code>string key = 3;</code>
+   */
+  public java.lang.String getKey() {
+    java.lang.Object ref = key_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      key_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string key = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getKeyBytes() {
+    java.lang.Object ref = key_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      key_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CONFIGVALUETYPE_FIELD_NUMBER = 4;
+  private volatile java.lang.Object configValueType_;
+  /**
+   * <code>string configValueType = 4;</code>
+   */
+  public java.lang.String getConfigValueType() {
+    java.lang.Object ref = configValueType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      configValueType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string configValueType = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getConfigValueTypeBytes() {
+    java.lang.Object ref = configValueType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      configValueType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CONTENT_FIELD_NUMBER = 5;
   private volatile java.lang.Object content_;
   /**
-   * <code>string content = 4;</code>
+   * <code>string content = 5;</code>
    */
   public java.lang.String getContent() {
     java.lang.Object ref = content_;
@@ -229,7 +269,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string content = 4;</code>
+   * <code>string content = 5;</code>
    */
   public com.google.protobuf.ByteString
       getContentBytes() {
@@ -245,38 +285,13 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CONTENTTYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object contentType_;
+  public static final int VERSION_FIELD_NUMBER = 6;
+  private long version_;
   /**
-   * <code>string contentType = 5;</code>
+   * <code>int64 version = 6;</code>
    */
-  public java.lang.String getContentType() {
-    java.lang.Object ref = contentType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      contentType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string contentType = 5;</code>
-   */
-  public com.google.protobuf.ByteString
-      getContentTypeBytes() {
-    java.lang.Object ref = contentType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      contentType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getVersion() {
+    return version_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -293,20 +308,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getKeyBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
-    }
     if (!getGroupBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, group_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, group_);
     }
     if (!getSetBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, set_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, set_);
+    }
+    if (!getKeyBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, key_);
+    }
+    if (!getConfigValueTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, configValueType_);
     }
     if (!getContentBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, content_);
     }
-    if (!getContentTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, contentType_);
+    if (version_ != 0L) {
+      output.writeInt64(6, version_);
     }
     unknownFields.writeTo(output);
   }
@@ -317,20 +335,24 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getKeyBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
-    }
     if (!getGroupBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, group_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, group_);
     }
     if (!getSetBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, set_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, set_);
+    }
+    if (!getKeyBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, key_);
+    }
+    if (!getConfigValueTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, configValueType_);
     }
     if (!getContentBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, content_);
     }
-    if (!getContentTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, contentType_);
+    if (version_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, version_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -342,22 +364,24 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.panshi.config.srv.CreateConfigReq)) {
+    if (!(obj instanceof io.panshi.config.srv.ConfigDto)) {
       return super.equals(obj);
     }
-    io.panshi.config.srv.CreateConfigReq other = (io.panshi.config.srv.CreateConfigReq) obj;
+    io.panshi.config.srv.ConfigDto other = (io.panshi.config.srv.ConfigDto) obj;
 
     boolean result = true;
-    result = result && getKey()
-        .equals(other.getKey());
     result = result && getGroup()
         .equals(other.getGroup());
     result = result && getSet()
         .equals(other.getSet());
+    result = result && getKey()
+        .equals(other.getKey());
+    result = result && getConfigValueType()
+        .equals(other.getConfigValueType());
     result = result && getContent()
         .equals(other.getContent());
-    result = result && getContentType()
-        .equals(other.getContentType());
+    result = result && (getVersion()
+        == other.getVersion());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -369,84 +393,87 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + KEY_FIELD_NUMBER;
-    hash = (53 * hash) + getKey().hashCode();
     hash = (37 * hash) + GROUP_FIELD_NUMBER;
     hash = (53 * hash) + getGroup().hashCode();
     hash = (37 * hash) + SET_FIELD_NUMBER;
     hash = (53 * hash) + getSet().hashCode();
+    hash = (37 * hash) + KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getKey().hashCode();
+    hash = (37 * hash) + CONFIGVALUETYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getConfigValueType().hashCode();
     hash = (37 * hash) + CONTENT_FIELD_NUMBER;
     hash = (53 * hash) + getContent().hashCode();
-    hash = (37 * hash) + CONTENTTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getContentType().hashCode();
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getVersion());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(byte[] data)
+  public static io.panshi.config.srv.ConfigDto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(java.io.InputStream input)
+  public static io.panshi.config.srv.ConfigDto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseDelimitedFrom(java.io.InputStream input)
+  public static io.panshi.config.srv.ConfigDto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseDelimitedFrom(
+  public static io.panshi.config.srv.ConfigDto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.panshi.config.srv.CreateConfigReq parseFrom(
+  public static io.panshi.config.srv.ConfigDto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -459,7 +486,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.panshi.config.srv.CreateConfigReq prototype) {
+  public static Builder newBuilder(io.panshi.config.srv.ConfigDto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -475,26 +502,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code io.panshi.config.srv.CreateConfigReq}
+   * Protobuf type {@code io.panshi.config.srv.ConfigDto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.CreateConfigReq)
-      io.panshi.config.srv.CreateConfigReqOrBuilder {
+      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.ConfigDto)
+      io.panshi.config.srv.ConfigDtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigReq_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigReq_fieldAccessorTable
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.panshi.config.srv.CreateConfigReq.class, io.panshi.config.srv.CreateConfigReq.Builder.class);
+              io.panshi.config.srv.ConfigDto.class, io.panshi.config.srv.ConfigDto.Builder.class);
     }
 
-    // Construct using io.panshi.config.srv.CreateConfigReq.newBuilder()
+    // Construct using io.panshi.config.srv.ConfigDto.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -512,15 +539,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      key_ = "";
-
       group_ = "";
 
       set_ = "";
 
+      key_ = "";
+
+      configValueType_ = "";
+
       content_ = "";
 
-      contentType_ = "";
+      version_ = 0L;
 
       return this;
     }
@@ -528,17 +557,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigReq_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_descriptor;
     }
 
     @java.lang.Override
-    public io.panshi.config.srv.CreateConfigReq getDefaultInstanceForType() {
-      return io.panshi.config.srv.CreateConfigReq.getDefaultInstance();
+    public io.panshi.config.srv.ConfigDto getDefaultInstanceForType() {
+      return io.panshi.config.srv.ConfigDto.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.panshi.config.srv.CreateConfigReq build() {
-      io.panshi.config.srv.CreateConfigReq result = buildPartial();
+    public io.panshi.config.srv.ConfigDto build() {
+      io.panshi.config.srv.ConfigDto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -546,13 +575,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.panshi.config.srv.CreateConfigReq buildPartial() {
-      io.panshi.config.srv.CreateConfigReq result = new io.panshi.config.srv.CreateConfigReq(this);
-      result.key_ = key_;
+    public io.panshi.config.srv.ConfigDto buildPartial() {
+      io.panshi.config.srv.ConfigDto result = new io.panshi.config.srv.ConfigDto(this);
       result.group_ = group_;
       result.set_ = set_;
+      result.key_ = key_;
+      result.configValueType_ = configValueType_;
       result.content_ = content_;
-      result.contentType_ = contentType_;
+      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -591,20 +621,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.panshi.config.srv.CreateConfigReq) {
-        return mergeFrom((io.panshi.config.srv.CreateConfigReq)other);
+      if (other instanceof io.panshi.config.srv.ConfigDto) {
+        return mergeFrom((io.panshi.config.srv.ConfigDto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.panshi.config.srv.CreateConfigReq other) {
-      if (other == io.panshi.config.srv.CreateConfigReq.getDefaultInstance()) return this;
-      if (!other.getKey().isEmpty()) {
-        key_ = other.key_;
-        onChanged();
-      }
+    public Builder mergeFrom(io.panshi.config.srv.ConfigDto other) {
+      if (other == io.panshi.config.srv.ConfigDto.getDefaultInstance()) return this;
       if (!other.getGroup().isEmpty()) {
         group_ = other.group_;
         onChanged();
@@ -613,13 +639,20 @@ private static final long serialVersionUID = 0L;
         set_ = other.set_;
         onChanged();
       }
+      if (!other.getKey().isEmpty()) {
+        key_ = other.key_;
+        onChanged();
+      }
+      if (!other.getConfigValueType().isEmpty()) {
+        configValueType_ = other.configValueType_;
+        onChanged();
+      }
       if (!other.getContent().isEmpty()) {
         content_ = other.content_;
         onChanged();
       }
-      if (!other.getContentType().isEmpty()) {
-        contentType_ = other.contentType_;
-        onChanged();
+      if (other.getVersion() != 0L) {
+        setVersion(other.getVersion());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -636,11 +669,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.panshi.config.srv.CreateConfigReq parsedMessage = null;
+      io.panshi.config.srv.ConfigDto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.panshi.config.srv.CreateConfigReq) e.getUnfinishedMessage();
+        parsedMessage = (io.panshi.config.srv.ConfigDto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -650,78 +683,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object key_ = "";
-    /**
-     * <code>string key = 1;</code>
-     */
-    public java.lang.String getKey() {
-      java.lang.Object ref = key_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        key_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string key = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getKeyBytes() {
-      java.lang.Object ref = key_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        key_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string key = 1;</code>
-     */
-    public Builder setKey(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      key_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string key = 1;</code>
-     */
-    public Builder clearKey() {
-      
-      key_ = getDefaultInstance().getKey();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string key = 1;</code>
-     */
-    public Builder setKeyBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      key_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object group_ = "";
     /**
-     * <code>string group = 2;</code>
+     * <code>string group = 1;</code>
      */
     public java.lang.String getGroup() {
       java.lang.Object ref = group_;
@@ -736,7 +700,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string group = 2;</code>
+     * <code>string group = 1;</code>
      */
     public com.google.protobuf.ByteString
         getGroupBytes() {
@@ -752,7 +716,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string group = 2;</code>
+     * <code>string group = 1;</code>
      */
     public Builder setGroup(
         java.lang.String value) {
@@ -765,7 +729,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string group = 2;</code>
+     * <code>string group = 1;</code>
      */
     public Builder clearGroup() {
       
@@ -774,7 +738,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string group = 2;</code>
+     * <code>string group = 1;</code>
      */
     public Builder setGroupBytes(
         com.google.protobuf.ByteString value) {
@@ -790,7 +754,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object set_ = "";
     /**
-     * <code>string set = 3;</code>
+     * <code>string set = 2;</code>
      */
     public java.lang.String getSet() {
       java.lang.Object ref = set_;
@@ -805,7 +769,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string set = 3;</code>
+     * <code>string set = 2;</code>
      */
     public com.google.protobuf.ByteString
         getSetBytes() {
@@ -821,7 +785,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string set = 3;</code>
+     * <code>string set = 2;</code>
      */
     public Builder setSet(
         java.lang.String value) {
@@ -834,7 +798,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string set = 3;</code>
+     * <code>string set = 2;</code>
      */
     public Builder clearSet() {
       
@@ -843,7 +807,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string set = 3;</code>
+     * <code>string set = 2;</code>
      */
     public Builder setSetBytes(
         com.google.protobuf.ByteString value) {
@@ -857,9 +821,147 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object key_ = "";
+    /**
+     * <code>string key = 3;</code>
+     */
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string key = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string key = 3;</code>
+     */
+    public Builder setKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      key_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string key = 3;</code>
+     */
+    public Builder clearKey() {
+      
+      key_ = getDefaultInstance().getKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string key = 3;</code>
+     */
+    public Builder setKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      key_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object configValueType_ = "";
+    /**
+     * <code>string configValueType = 4;</code>
+     */
+    public java.lang.String getConfigValueType() {
+      java.lang.Object ref = configValueType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        configValueType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string configValueType = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getConfigValueTypeBytes() {
+      java.lang.Object ref = configValueType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        configValueType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string configValueType = 4;</code>
+     */
+    public Builder setConfigValueType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      configValueType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string configValueType = 4;</code>
+     */
+    public Builder clearConfigValueType() {
+      
+      configValueType_ = getDefaultInstance().getConfigValueType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string configValueType = 4;</code>
+     */
+    public Builder setConfigValueTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      configValueType_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object content_ = "";
     /**
-     * <code>string content = 4;</code>
+     * <code>string content = 5;</code>
      */
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
@@ -874,7 +976,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content = 4;</code>
+     * <code>string content = 5;</code>
      */
     public com.google.protobuf.ByteString
         getContentBytes() {
@@ -890,7 +992,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content = 4;</code>
+     * <code>string content = 5;</code>
      */
     public Builder setContent(
         java.lang.String value) {
@@ -903,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content = 4;</code>
+     * <code>string content = 5;</code>
      */
     public Builder clearContent() {
       
@@ -912,7 +1014,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content = 4;</code>
+     * <code>string content = 5;</code>
      */
     public Builder setContentBytes(
         com.google.protobuf.ByteString value) {
@@ -926,71 +1028,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object contentType_ = "";
+    private long version_ ;
     /**
-     * <code>string contentType = 5;</code>
+     * <code>int64 version = 6;</code>
      */
-    public java.lang.String getContentType() {
-      java.lang.Object ref = contentType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        contentType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public long getVersion() {
+      return version_;
     }
     /**
-     * <code>string contentType = 5;</code>
+     * <code>int64 version = 6;</code>
      */
-    public com.google.protobuf.ByteString
-        getContentTypeBytes() {
-      java.lang.Object ref = contentType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        contentType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string contentType = 5;</code>
-     */
-    public Builder setContentType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      contentType_ = value;
+    public Builder setVersion(long value) {
+      
+      version_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string contentType = 5;</code>
+     * <code>int64 version = 6;</code>
      */
-    public Builder clearContentType() {
+    public Builder clearVersion() {
       
-      contentType_ = getDefaultInstance().getContentType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string contentType = 5;</code>
-     */
-    public Builder setContentTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      contentType_ = value;
+      version_ = 0L;
       onChanged();
       return this;
     }
@@ -1007,41 +1066,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.CreateConfigReq)
+    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.ConfigDto)
   }
 
-  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.CreateConfigReq)
-  private static final io.panshi.config.srv.CreateConfigReq DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.ConfigDto)
+  private static final io.panshi.config.srv.ConfigDto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.panshi.config.srv.CreateConfigReq();
+    DEFAULT_INSTANCE = new io.panshi.config.srv.ConfigDto();
   }
 
-  public static io.panshi.config.srv.CreateConfigReq getDefaultInstance() {
+  public static io.panshi.config.srv.ConfigDto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<CreateConfigReq>
-      PARSER = new com.google.protobuf.AbstractParser<CreateConfigReq>() {
+  private static final com.google.protobuf.Parser<ConfigDto>
+      PARSER = new com.google.protobuf.AbstractParser<ConfigDto>() {
     @java.lang.Override
-    public CreateConfigReq parsePartialFrom(
+    public ConfigDto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateConfigReq(input, extensionRegistry);
+      return new ConfigDto(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<CreateConfigReq> parser() {
+  public static com.google.protobuf.Parser<ConfigDto> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<CreateConfigReq> getParserForType() {
+  public com.google.protobuf.Parser<ConfigDto> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.panshi.config.srv.CreateConfigReq getDefaultInstanceForType() {
+  public io.panshi.config.srv.ConfigDto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

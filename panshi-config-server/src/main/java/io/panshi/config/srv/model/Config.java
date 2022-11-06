@@ -1,18 +1,24 @@
 package io.panshi.config.srv.model;
 
-
 import lombok.Data;
 
 @Data
-public abstract class Config<T>{
+public class Config implements Comparable<Config> {
+    protected String key;
+    protected String group;
+    protected String set;
+    private String content;
+    private long version;
+    private ConfigValueType configValueType;
 
-    private String group;
-
-    private String key;
-
-    private ConfigType configType;
-
-    private T content;
-
-
+    @Override
+    public int compareTo(Config other) {
+        int c = group.compareTo(other.group);
+        if (c > 0) return c;
+        c = set.compareToIgnoreCase(other.set);
+        if (c > 0) return c;
+        c = key.compareTo(other.key);
+        if (c > 0) return c;
+        return Long.compare(version, other.version);
+    }
 }

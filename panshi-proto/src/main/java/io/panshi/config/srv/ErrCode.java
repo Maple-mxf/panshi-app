@@ -12,6 +12,10 @@ public enum ErrCode
    * <code>INVALID_INPUT = 0;</code>
    */
   INVALID_INPUT(0),
+  /**
+   * <code>SERVER_ERR = 1;</code>
+   */
+  SERVER_ERR(1),
   UNRECOGNIZED(-1),
   ;
 
@@ -19,6 +23,10 @@ public enum ErrCode
    * <code>INVALID_INPUT = 0;</code>
    */
   public static final int INVALID_INPUT_VALUE = 0;
+  /**
+   * <code>SERVER_ERR = 1;</code>
+   */
+  public static final int SERVER_ERR_VALUE = 1;
 
 
   public final int getNumber() {
@@ -40,6 +48,7 @@ public enum ErrCode
   public static ErrCode forNumber(int value) {
     switch (value) {
       case 0: return INVALID_INPUT;
+      case 1: return SERVER_ERR;
       default: return null;
     }
   }

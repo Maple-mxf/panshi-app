@@ -8,4 +8,9 @@ protoc --plugin=protoc-gen-grpc-java --grpc-java_out=../java --java_out=../java 
 
 /Users/maxuefeng/.gradle/caches/modules-2/files-2.1/io.grpc/protoc-gen-grpc-java/1.20.0/73e37e9c44d6b8ac020c2d3f4c5bb73f97ce2882/protoc-gen-grpc-java-1.20.0-osx-x86_64.exe
 
-
+docker run -d --name etcd-server \
+    -p 2379:2379 \
+    -p 2380:2380 \
+    --env ALLOW_NONE_AUTHENTICATION=yes \
+    --env ETCD_ADVERTISE_CLIENT_URLS=http://etcd-server:2379 \
+    bitnami/etcd:latest

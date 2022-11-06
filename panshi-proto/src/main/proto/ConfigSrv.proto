@@ -9,8 +9,8 @@ option java_multiple_files = true;
 service ConfigSrv {
 
   // 创建配置信息
-  rpc createConfig(CreateConfigReq) returns (CreateConfigResp) ;
+  rpc createConfig(CreateConfigRequest) returns (CreateConfigResponse) ;
 
-  // 查询配置信息
-  rpc describeConfigDetail(DescribeConfigDetailRequest) returns (DescribeConfigDetailResponse);
+  // 查询配置列表
+  rpc describeConfigList(DescribeConfigListRequest) returns (DescribeConfigListResponse);
 }

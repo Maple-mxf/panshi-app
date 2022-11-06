@@ -3,8 +3,8 @@
 
 package io.panshi.config.srv;
 
-public interface DescribeConfigDetailRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.DescribeConfigDetailRequest)
+public interface DescribeConfigListRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.DescribeConfigListRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -6,15 +6,24 @@ package io.panshi.config.srv;
 option java_package = "io.panshi.config.srv";
 option java_multiple_files = true;
 
-message DescribeConfigDetailResponse {
-  string greeting = 1;
+message ConfigDto{
+  string group = 1;
+  string set = 2;
+  string key = 3;
+  string configValueType = 4;
+  string content = 5;
+  int64  version = 6;
 }
 
-message DescribeConfigDetailRequest {
-  string name = 1;
+message DescribeConfigListResponse {
+  repeated ConfigDto configList = 1;
 }
 
-message CreateConfigReq {
+message DescribeConfigListRequest {
+  string filterKeyword = 1;
+}
+
+message CreateConfigRequest {
   string key = 1;
   string group = 2;
   string set = 3;
@@ -22,7 +31,7 @@ message CreateConfigReq {
   string contentType = 5;
 };
 
-message CreateConfigResp {
+message CreateConfigResponse {
   CommonResp cRsp = 1;
   string id = 2;
 }

@@ -6,4 +6,6 @@ import lombok.Data;
 public class Config {
 
     private String[] etcdClusters;
+
+    private AccountConfig[] accounts;
 }
