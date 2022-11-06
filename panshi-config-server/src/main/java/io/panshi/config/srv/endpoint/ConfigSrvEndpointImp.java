@@ -18,7 +18,8 @@ public final class ConfigSrvEndpointImp extends ConfigSrvGrpc.ConfigSrvImplBase 
         observer.onNext(DescribeConfigListResponse.newBuilder()
                 .addAllConfigList(
                         configs.stream()
-                                .map(t -> ConfigDto.newBuilder().build())
+                                .map(t -> ConfigDto.newBuilder()
+                                        .build())
                                 .collect(Collectors.toList()))
                 .build());
         observer.onCompleted();
