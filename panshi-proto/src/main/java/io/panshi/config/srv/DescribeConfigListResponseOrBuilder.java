@@ -4,29 +4,29 @@
 package io.panshi.config.srv;
 
 public interface DescribeConfigListResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.DescribeConfigListResponse)
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.DescribeConfigListResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .io.panshi.config.srv.ConfigDto configList = 1;</code>
+   * <code>repeated .io.panshi.config.ConfigDto configList = 1;</code>
    */
   java.util.List<io.panshi.config.srv.ConfigDto> 
       getConfigListList();
   /**
-   * <code>repeated .io.panshi.config.srv.ConfigDto configList = 1;</code>
+   * <code>repeated .io.panshi.config.ConfigDto configList = 1;</code>
    */
   io.panshi.config.srv.ConfigDto getConfigList(int index);
   /**
-   * <code>repeated .io.panshi.config.srv.ConfigDto configList = 1;</code>
+   * <code>repeated .io.panshi.config.ConfigDto configList = 1;</code>
    */
   int getConfigListCount();
   /**
-   * <code>repeated .io.panshi.config.srv.ConfigDto configList = 1;</code>
+   * <code>repeated .io.panshi.config.ConfigDto configList = 1;</code>
    */
   java.util.List<? extends io.panshi.config.srv.ConfigDtoOrBuilder> 
       getConfigListOrBuilderList();
   /**
-   * <code>repeated .io.panshi.config.srv.ConfigDto configList = 1;</code>
+   * <code>repeated .io.panshi.config.ConfigDto configList = 1;</code>
    */
   io.panshi.config.srv.ConfigDtoOrBuilder getConfigListOrBuilder(
       int index);

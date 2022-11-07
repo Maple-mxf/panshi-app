@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package io.panshi.config.srv;
+package io.panshi.config;
 
 option java_package = "io.panshi.config.srv";
 option java_multiple_files = true;
@@ -9,6 +9,7 @@ enum ErrCode
 {
   INVALID_INPUT = 0;
   SERVER_ERR = 1;
+  SUCCESS = 2;
 }
 
 message CommonResp {

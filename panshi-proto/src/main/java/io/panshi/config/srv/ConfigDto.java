@@ -4,11 +4,11 @@
 package io.panshi.config.srv;
 
 /**
- * Protobuf type {@code io.panshi.config.srv.ConfigDto}
+ * Protobuf type {@code io.panshi.config.ConfigDto}
  */
 public  final class ConfigDto extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.ConfigDto)
+    // @@protoc_insertion_point(message_implements:io.panshi.config.ConfigDto)
     ConfigDtoOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use ConfigDto.newBuilder() to construct.
@@ -104,13 +104,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_descriptor;
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_ConfigDto_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_fieldAccessorTable
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_ConfigDto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.panshi.config.srv.ConfigDto.class, io.panshi.config.srv.ConfigDto.Builder.class);
   }
@@ -502,21 +502,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code io.panshi.config.srv.ConfigDto}
+   * Protobuf type {@code io.panshi.config.ConfigDto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.ConfigDto)
+      // @@protoc_insertion_point(builder_implements:io.panshi.config.ConfigDto)
       io.panshi.config.srv.ConfigDtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_ConfigDto_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_fieldAccessorTable
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_ConfigDto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.panshi.config.srv.ConfigDto.class, io.panshi.config.srv.ConfigDto.Builder.class);
     }
@@ -557,7 +557,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_ConfigDto_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_ConfigDto_descriptor;
     }
 
     @java.lang.Override
@@ -1066,10 +1066,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.ConfigDto)
+    // @@protoc_insertion_point(builder_scope:io.panshi.config.ConfigDto)
   }
 
-  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.ConfigDto)
+  // @@protoc_insertion_point(class_scope:io.panshi.config.ConfigDto)
   private static final io.panshi.config.srv.ConfigDto DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new io.panshi.config.srv.ConfigDto();

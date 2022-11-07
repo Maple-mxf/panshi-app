@@ -15,30 +15,50 @@ public final class ConfigSrvDto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_panshi_config_srv_ConfigDto_descriptor;
+    internal_static_io_panshi_config_ConfigDto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_panshi_config_srv_ConfigDto_fieldAccessorTable;
+      internal_static_io_panshi_config_ConfigDto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_panshi_config_srv_DescribeConfigListResponse_descriptor;
+    internal_static_io_panshi_config_DescribeConfigListResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_panshi_config_srv_DescribeConfigListResponse_fieldAccessorTable;
+      internal_static_io_panshi_config_DescribeConfigListResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_panshi_config_srv_DescribeConfigListRequest_descriptor;
+    internal_static_io_panshi_config_DescribeConfigListRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_panshi_config_srv_DescribeConfigListRequest_fieldAccessorTable;
+      internal_static_io_panshi_config_DescribeConfigListRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_panshi_config_srv_CreateConfigRequest_descriptor;
+    internal_static_io_panshi_config_CreateConfigRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_panshi_config_srv_CreateConfigRequest_fieldAccessorTable;
+      internal_static_io_panshi_config_CreateConfigRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
+    internal_static_io_panshi_config_CreateConfigResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_panshi_config_srv_CreateConfigResponse_fieldAccessorTable;
+      internal_static_io_panshi_config_CreateConfigResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_panshi_config_RegisterServiceInstanceRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_io_panshi_config_RegisterServiceInstanceRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_panshi_config_RegisterServiceInstanceResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_io_panshi_config_RegisterServiceInstanceResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_panshi_config_PullConfigListRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_io_panshi_config_PullConfigListRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_panshi_config_PullConfigListResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_io_panshi_config_PullConfigListResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -48,20 +68,30 @@ public final class ConfigSrvDto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022ConfigSrvDto.proto\022\024io.panshi.config.s" +
-      "rv\032\025ConfigSrvCommon.proto\"o\n\tConfigDto\022\r" +
-      "\n\005group\030\001 \001(\t\022\013\n\003set\030\002 \001(\t\022\013\n\003key\030\003 \001(\t\022" +
-      "\027\n\017configValueType\030\004 \001(\t\022\017\n\007content\030\005 \001(" +
-      "\t\022\017\n\007version\030\006 \001(\003\"Q\n\032DescribeConfigList" +
-      "Response\0223\n\nconfigList\030\001 \003(\0132\037.io.panshi" +
-      ".config.srv.ConfigDto\"2\n\031DescribeConfigL" +
-      "istRequest\022\025\n\rfilterKeyword\030\001 \001(\t\"d\n\023Cre" +
-      "ateConfigRequest\022\013\n\003key\030\001 \001(\t\022\r\n\005group\030\002" +
-      " \001(\t\022\013\n\003set\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\023\n\013co" +
-      "ntentType\030\005 \001(\t\"R\n\024CreateConfigResponse\022" +
-      ".\n\004cRsp\030\001 \001(\0132 .io.panshi.config.srv.Com" +
-      "monResp\022\n\n\002id\030\002 \001(\tB\030\n\024io.panshi.config." +
-      "srvP\001b\006proto3"
+      "\n\022ConfigSrvDto.proto\022\020io.panshi.config\032\025" +
+      "ConfigSrvCommon.proto\"o\n\tConfigDto\022\r\n\005gr" +
+      "oup\030\001 \001(\t\022\013\n\003set\030\002 \001(\t\022\013\n\003key\030\003 \001(\t\022\027\n\017c" +
+      "onfigValueType\030\004 \001(\t\022\017\n\007content\030\005 \001(\t\022\017\n" +
+      "\007version\030\006 \001(\003\"M\n\032DescribeConfigListResp" +
+      "onse\022/\n\nconfigList\030\001 \003(\0132\033.io.panshi.con" +
+      "fig.ConfigDto\"2\n\031DescribeConfigListReque" +
+      "st\022\025\n\rfilterKeyword\030\001 \001(\t\"d\n\023CreateConfi" +
+      "gRequest\022\013\n\003key\030\001 \001(\t\022\r\n\005group\030\002 \001(\t\022\013\n\003" +
+      "set\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\023\n\013contentTyp" +
+      "e\030\005 \001(\t\"N\n\024CreateConfigResponse\022*\n\004cRsp\030" +
+      "\001 \001(\0132\034.io.panshi.config.CommonResp\022\n\n\002i" +
+      "d\030\002 \001(\t\"O\n\036RegisterServiceInstanceReques" +
+      "t\022\r\n\005group\030\001 \001(\t\022\013\n\003set\030\002 \001(\t\022\021\n\tipAddre" +
+      "ss\030\003 \001(\t\"n\n\037RegisterServiceInstanceRespo" +
+      "nse\022\r\n\005group\030\001 \001(\t\022\013\n\003set\030\002 \001(\t\022/\n\nconfi" +
+      "gList\030\003 \003(\0132\033.io.panshi.config.ConfigDto" +
+      "\"K\n\025PullConfigListRequest\022\r\n\005group\030\001 \001(\t" +
+      "\022\013\n\003set\030\002 \001(\t\022\026\n\016currentVersion\030\003 \001(\t\"\212\001" +
+      "\n\026PullConfigListResponse\022*\n\004cRsp\030\001 \001(\0132\034" +
+      ".io.panshi.config.CommonResp\022\023\n\013lastVers" +
+      "ion\030\002 \001(\003\022/\n\nconfigList\030\003 \003(\0132\033.io.pansh" +
+      "i.config.ConfigDtoB\030\n\024io.panshi.config.s" +
+      "rvP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -76,36 +106,60 @@ public final class ConfigSrvDto {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.panshi.config.srv.ConfigSrvCommon.getDescriptor(),
         }, assigner);
-    internal_static_io_panshi_config_srv_ConfigDto_descriptor =
+    internal_static_io_panshi_config_ConfigDto_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_io_panshi_config_srv_ConfigDto_fieldAccessorTable = new
+    internal_static_io_panshi_config_ConfigDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_panshi_config_srv_ConfigDto_descriptor,
+        internal_static_io_panshi_config_ConfigDto_descriptor,
         new java.lang.String[] { "Group", "Set", "Key", "ConfigValueType", "Content", "Version", });
-    internal_static_io_panshi_config_srv_DescribeConfigListResponse_descriptor =
+    internal_static_io_panshi_config_DescribeConfigListResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_io_panshi_config_srv_DescribeConfigListResponse_fieldAccessorTable = new
+    internal_static_io_panshi_config_DescribeConfigListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_panshi_config_srv_DescribeConfigListResponse_descriptor,
+        internal_static_io_panshi_config_DescribeConfigListResponse_descriptor,
         new java.lang.String[] { "ConfigList", });
-    internal_static_io_panshi_config_srv_DescribeConfigListRequest_descriptor =
+    internal_static_io_panshi_config_DescribeConfigListRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_io_panshi_config_srv_DescribeConfigListRequest_fieldAccessorTable = new
+    internal_static_io_panshi_config_DescribeConfigListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_panshi_config_srv_DescribeConfigListRequest_descriptor,
+        internal_static_io_panshi_config_DescribeConfigListRequest_descriptor,
         new java.lang.String[] { "FilterKeyword", });
-    internal_static_io_panshi_config_srv_CreateConfigRequest_descriptor =
+    internal_static_io_panshi_config_CreateConfigRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_io_panshi_config_srv_CreateConfigRequest_fieldAccessorTable = new
+    internal_static_io_panshi_config_CreateConfigRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_panshi_config_srv_CreateConfigRequest_descriptor,
+        internal_static_io_panshi_config_CreateConfigRequest_descriptor,
         new java.lang.String[] { "Key", "Group", "Set", "Content", "ContentType", });
-    internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor =
+    internal_static_io_panshi_config_CreateConfigResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_io_panshi_config_srv_CreateConfigResponse_fieldAccessorTable = new
+    internal_static_io_panshi_config_CreateConfigResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor,
+        internal_static_io_panshi_config_CreateConfigResponse_descriptor,
         new java.lang.String[] { "CRsp", "Id", });
+    internal_static_io_panshi_config_RegisterServiceInstanceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_io_panshi_config_RegisterServiceInstanceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_io_panshi_config_RegisterServiceInstanceRequest_descriptor,
+        new java.lang.String[] { "Group", "Set", "IpAddress", });
+    internal_static_io_panshi_config_RegisterServiceInstanceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_io_panshi_config_RegisterServiceInstanceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_io_panshi_config_RegisterServiceInstanceResponse_descriptor,
+        new java.lang.String[] { "Group", "Set", "ConfigList", });
+    internal_static_io_panshi_config_PullConfigListRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_io_panshi_config_PullConfigListRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_io_panshi_config_PullConfigListRequest_descriptor,
+        new java.lang.String[] { "Group", "Set", "CurrentVersion", });
+    internal_static_io_panshi_config_PullConfigListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_io_panshi_config_PullConfigListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_io_panshi_config_PullConfigListResponse_descriptor,
+        new java.lang.String[] { "CRsp", "LastVersion", "ConfigList", });
     io.panshi.config.srv.ConfigSrvCommon.getDescriptor();
   }
 

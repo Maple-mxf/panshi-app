@@ -4,15 +4,15 @@
 package io.panshi.config.srv;
 
 public interface CommonRespOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.CommonResp)
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.CommonResp)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+   * <code>.io.panshi.config.ErrCode code = 1;</code>
    */
   int getCodeValue();
   /**
-   * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+   * <code>.io.panshi.config.ErrCode code = 1;</code>
    */
   io.panshi.config.srv.ErrCode getCode();
 

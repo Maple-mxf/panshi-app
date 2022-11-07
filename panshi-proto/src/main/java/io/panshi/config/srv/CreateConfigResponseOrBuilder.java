@@ -4,19 +4,19 @@
 package io.panshi.config.srv;
 
 public interface CreateConfigResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.CreateConfigResponse)
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.CreateConfigResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
    */
   boolean hasCRsp();
   /**
-   * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
    */
   io.panshi.config.srv.CommonResp getCRsp();
   /**
-   * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
    */
   io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder();
 

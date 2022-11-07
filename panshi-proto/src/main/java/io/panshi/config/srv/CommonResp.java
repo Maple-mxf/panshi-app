@@ -4,11 +4,11 @@
 package io.panshi.config.srv;
 
 /**
- * Protobuf type {@code io.panshi.config.srv.CommonResp}
+ * Protobuf type {@code io.panshi.config.CommonResp}
  */
 public  final class CommonResp extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.CommonResp)
+    // @@protoc_insertion_point(message_implements:io.panshi.config.CommonResp)
     CommonRespOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use CommonResp.newBuilder() to construct.
@@ -84,13 +84,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_srv_CommonResp_descriptor;
+    return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_CommonResp_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_srv_CommonResp_fieldAccessorTable
+    return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_CommonResp_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.panshi.config.srv.CommonResp.class, io.panshi.config.srv.CommonResp.Builder.class);
   }
@@ -98,13 +98,13 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_;
   /**
-   * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+   * <code>.io.panshi.config.ErrCode code = 1;</code>
    */
   public int getCodeValue() {
     return code_;
   }
   /**
-   * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+   * <code>.io.panshi.config.ErrCode code = 1;</code>
    */
   public io.panshi.config.srv.ErrCode getCode() {
     @SuppressWarnings("deprecation")
@@ -356,21 +356,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code io.panshi.config.srv.CommonResp}
+   * Protobuf type {@code io.panshi.config.CommonResp}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.CommonResp)
+      // @@protoc_insertion_point(builder_implements:io.panshi.config.CommonResp)
       io.panshi.config.srv.CommonRespOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_srv_CommonResp_descriptor;
+      return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_CommonResp_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_srv_CommonResp_fieldAccessorTable
+      return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_CommonResp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.panshi.config.srv.CommonResp.class, io.panshi.config.srv.CommonResp.Builder.class);
     }
@@ -405,7 +405,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_srv_CommonResp_descriptor;
+      return io.panshi.config.srv.ConfigSrvCommon.internal_static_io_panshi_config_CommonResp_descriptor;
     }
 
     @java.lang.Override
@@ -518,13 +518,13 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
-     * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+     * <code>.io.panshi.config.ErrCode code = 1;</code>
      */
     public int getCodeValue() {
       return code_;
     }
     /**
-     * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+     * <code>.io.panshi.config.ErrCode code = 1;</code>
      */
     public Builder setCodeValue(int value) {
       code_ = value;
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+     * <code>.io.panshi.config.ErrCode code = 1;</code>
      */
     public io.panshi.config.srv.ErrCode getCode() {
       @SuppressWarnings("deprecation")
@@ -540,7 +540,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? io.panshi.config.srv.ErrCode.UNRECOGNIZED : result;
     }
     /**
-     * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+     * <code>.io.panshi.config.ErrCode code = 1;</code>
      */
     public Builder setCode(io.panshi.config.srv.ErrCode value) {
       if (value == null) {
@@ -552,7 +552,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.srv.ErrCode code = 1;</code>
+     * <code>.io.panshi.config.ErrCode code = 1;</code>
      */
     public Builder clearCode() {
       
@@ -711,10 +711,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.CommonResp)
+    // @@protoc_insertion_point(builder_scope:io.panshi.config.CommonResp)
   }
 
-  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.CommonResp)
+  // @@protoc_insertion_point(class_scope:io.panshi.config.CommonResp)
   private static final io.panshi.config.srv.CommonResp DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new io.panshi.config.srv.CommonResp();

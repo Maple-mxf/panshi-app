@@ -1,7 +1,7 @@
 syntax = "proto3";
 import "ConfigSrvDto.proto";
 
-package io.panshi.config.srv;
+package io.panshi.config;
 
 option java_package = "io.panshi.config.srv";
 option java_multiple_files = true;
@@ -13,4 +13,10 @@ service ConfigSrv {
 
   // 查询配置列表
   rpc describeConfigList(DescribeConfigListRequest) returns (DescribeConfigListResponse);
+
+  // 注册服务实例
+  rpc registerClientInstance(RegisterServiceInstanceRequest) returns (RegisterServiceInstanceResponse);
+
+  // 拉取配置
+  rpc pullConfigList(PullConfigListRequest) returns (PullConfigListResponse);
 }

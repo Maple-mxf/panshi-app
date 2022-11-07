@@ -15,10 +15,10 @@ public final class ConfigSrvCommon {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_panshi_config_srv_CommonResp_descriptor;
+    internal_static_io_panshi_config_CommonResp_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_panshi_config_srv_CommonResp_fieldAccessorTable;
+      internal_static_io_panshi_config_CommonResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -28,12 +28,12 @@ public final class ConfigSrvCommon {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025ConfigSrvCommon.proto\022\024io.panshi.confi" +
-      "g.srv\"]\n\nCommonResp\022+\n\004code\030\001 \001(\0162\035.io.p" +
-      "anshi.config.srv.ErrCode\022\017\n\007message\030\002 \001(" +
-      "\t\022\021\n\trequestId\030\003 \001(\t*,\n\007ErrCode\022\021\n\rINVAL" +
-      "ID_INPUT\020\000\022\016\n\nSERVER_ERR\020\001B\030\n\024io.panshi." +
-      "config.srvP\001b\006proto3"
+      "\n\025ConfigSrvCommon.proto\022\020io.panshi.confi" +
+      "g\"Y\n\nCommonResp\022\'\n\004code\030\001 \001(\0162\031.io.pansh" +
+      "i.config.ErrCode\022\017\n\007message\030\002 \001(\t\022\021\n\treq" +
+      "uestId\030\003 \001(\t*9\n\007ErrCode\022\021\n\rINVALID_INPUT" +
+      "\020\000\022\016\n\nSERVER_ERR\020\001\022\013\n\007SUCCESS\020\002B\030\n\024io.pa" +
+      "nshi.config.srvP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -47,11 +47,11 @@ public final class ConfigSrvCommon {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_io_panshi_config_srv_CommonResp_descriptor =
+    internal_static_io_panshi_config_CommonResp_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_io_panshi_config_srv_CommonResp_fieldAccessorTable = new
+    internal_static_io_panshi_config_CommonResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_panshi_config_srv_CommonResp_descriptor,
+        internal_static_io_panshi_config_CommonResp_descriptor,
         new java.lang.String[] { "Code", "Message", "RequestId", });
   }
 

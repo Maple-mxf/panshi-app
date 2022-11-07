@@ -69,14 +69,19 @@ project("panshi-config-server") {
         implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
         implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0")
         implementation("io.etcd:jetcd-core:0.7.3")
-
     }
 }
 
 project("panshi-config-client") {
     group = "io.panshi.config.client"
     version = "1.0"
-    dependencies {}
+    dependencies {
+        implementation(project(":panshi-proto"))
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0")
+    }
 }
 
 project("panshi-grpc-etcd") {

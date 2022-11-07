@@ -4,7 +4,7 @@
 package io.panshi.config.srv;
 
 /**
- * Protobuf enum {@code io.panshi.config.srv.ErrCode}
+ * Protobuf enum {@code io.panshi.config.ErrCode}
  */
 public enum ErrCode
     implements com.google.protobuf.ProtocolMessageEnum {
@@ -16,6 +16,10 @@ public enum ErrCode
    * <code>SERVER_ERR = 1;</code>
    */
   SERVER_ERR(1),
+  /**
+   * <code>SUCCESS = 2;</code>
+   */
+  SUCCESS(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -27,6 +31,10 @@ public enum ErrCode
    * <code>SERVER_ERR = 1;</code>
    */
   public static final int SERVER_ERR_VALUE = 1;
+  /**
+   * <code>SUCCESS = 2;</code>
+   */
+  public static final int SUCCESS_VALUE = 2;
 
 
   public final int getNumber() {
@@ -49,6 +57,7 @@ public enum ErrCode
     switch (value) {
       case 0: return INVALID_INPUT;
       case 1: return SERVER_ERR;
+      case 2: return SUCCESS;
       default: return null;
     }
   }
@@ -98,6 +107,6 @@ public enum ErrCode
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:io.panshi.config.srv.ErrCode)
+  // @@protoc_insertion_point(enum_scope:io.panshi.config.ErrCode)
 }
 

@@ -4,7 +4,7 @@
 package io.panshi.config.srv;
 
 public interface DescribeConfigListRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.DescribeConfigListRequest)
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.DescribeConfigListRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

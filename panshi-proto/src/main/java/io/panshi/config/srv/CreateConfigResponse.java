@@ -4,11 +4,11 @@
 package io.panshi.config.srv;
 
 /**
- * Protobuf type {@code io.panshi.config.srv.CreateConfigResponse}
+ * Protobuf type {@code io.panshi.config.CreateConfigResponse}
  */
 public  final class CreateConfigResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:io.panshi.config.srv.CreateConfigResponse)
+    // @@protoc_insertion_point(message_implements:io.panshi.config.CreateConfigResponse)
     CreateConfigResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use CreateConfigResponse.newBuilder() to construct.
@@ -83,13 +83,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_CreateConfigResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_fieldAccessorTable
+    return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_CreateConfigResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.panshi.config.srv.CreateConfigResponse.class, io.panshi.config.srv.CreateConfigResponse.Builder.class);
   }
@@ -97,19 +97,19 @@ private static final long serialVersionUID = 0L;
   public static final int CRSP_FIELD_NUMBER = 1;
   private io.panshi.config.srv.CommonResp cRsp_;
   /**
-   * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
    */
   public boolean hasCRsp() {
     return cRsp_ != null;
   }
   /**
-   * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
    */
   public io.panshi.config.srv.CommonResp getCRsp() {
     return cRsp_ == null ? io.panshi.config.srv.CommonResp.getDefaultInstance() : cRsp_;
   }
   /**
-   * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
    */
   public io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder() {
     return getCRsp();
@@ -321,21 +321,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code io.panshi.config.srv.CreateConfigResponse}
+   * Protobuf type {@code io.panshi.config.CreateConfigResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:io.panshi.config.srv.CreateConfigResponse)
+      // @@protoc_insertion_point(builder_implements:io.panshi.config.CreateConfigResponse)
       io.panshi.config.srv.CreateConfigResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_CreateConfigResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_fieldAccessorTable
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_CreateConfigResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.panshi.config.srv.CreateConfigResponse.class, io.panshi.config.srv.CreateConfigResponse.Builder.class);
     }
@@ -372,7 +372,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_srv_CreateConfigResponse_descriptor;
+      return io.panshi.config.srv.ConfigSrvDto.internal_static_io_panshi_config_CreateConfigResponse_descriptor;
     }
 
     @java.lang.Override
@@ -486,13 +486,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         io.panshi.config.srv.CommonResp, io.panshi.config.srv.CommonResp.Builder, io.panshi.config.srv.CommonRespOrBuilder> cRspBuilder_;
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public boolean hasCRsp() {
       return cRspBuilder_ != null || cRsp_ != null;
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public io.panshi.config.srv.CommonResp getCRsp() {
       if (cRspBuilder_ == null) {
@@ -502,7 +502,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public Builder setCRsp(io.panshi.config.srv.CommonResp value) {
       if (cRspBuilder_ == null) {
@@ -518,7 +518,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public Builder setCRsp(
         io.panshi.config.srv.CommonResp.Builder builderForValue) {
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public Builder mergeCRsp(io.panshi.config.srv.CommonResp value) {
       if (cRspBuilder_ == null) {
@@ -550,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public Builder clearCRsp() {
       if (cRspBuilder_ == null) {
@@ -564,7 +564,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public io.panshi.config.srv.CommonResp.Builder getCRspBuilder() {
       
@@ -572,7 +572,7 @@ private static final long serialVersionUID = 0L;
       return getCRspFieldBuilder().getBuilder();
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     public io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder() {
       if (cRspBuilder_ != null) {
@@ -583,7 +583,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.io.panshi.config.srv.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         io.panshi.config.srv.CommonResp, io.panshi.config.srv.CommonResp.Builder, io.panshi.config.srv.CommonRespOrBuilder> 
@@ -680,10 +680,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:io.panshi.config.srv.CreateConfigResponse)
+    // @@protoc_insertion_point(builder_scope:io.panshi.config.CreateConfigResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:io.panshi.config.srv.CreateConfigResponse)
+  // @@protoc_insertion_point(class_scope:io.panshi.config.CreateConfigResponse)
   private static final io.panshi.config.srv.CreateConfigResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new io.panshi.config.srv.CreateConfigResponse();

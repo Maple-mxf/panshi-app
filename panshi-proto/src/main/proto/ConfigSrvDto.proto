@@ -1,7 +1,7 @@
 syntax = "proto3";
 import "ConfigSrvCommon.proto";
 
-package io.panshi.config.srv;
+package io.panshi.config;
 
 option java_package = "io.panshi.config.srv";
 option java_multiple_files = true;
@@ -34,4 +34,28 @@ message CreateConfigRequest {
 message CreateConfigResponse {
   CommonResp cRsp = 1;
   string id = 2;
+}
+
+message RegisterServiceInstanceRequest{
+  string group = 1;
+  string set = 2;
+  string ipAddress = 3;
+}
+
+message RegisterServiceInstanceResponse{
+  string group = 1;
+  string set = 2;
+  repeated ConfigDto configList = 3;
+}
+
+message PullConfigListRequest {
+  string group = 1;
+  string set = 2;
+  string currentVersion = 3;
+}
+
+message PullConfigListResponse {
+  CommonResp cRsp = 1;
+  int64 lastVersion = 2;
+  repeated ConfigDto configList = 3;
 }

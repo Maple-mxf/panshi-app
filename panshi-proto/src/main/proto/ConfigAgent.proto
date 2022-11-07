@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package io.panshi.config;
+
+option java_package = "io.panshi.config.agent";
+option java_multiple_files = true;
+
+service ConfigAgent {
+//  rpc push
+}

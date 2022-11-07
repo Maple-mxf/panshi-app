@@ -4,7 +4,7 @@
 package io.panshi.config.srv;
 
 public interface ConfigDtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.srv.ConfigDto)
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.ConfigDto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
