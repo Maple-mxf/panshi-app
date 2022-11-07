@@ -45,9 +45,11 @@ subprojects {
         implementation("org.projectlombok:lombok:1.18.16")
         implementation("com.google.guava:guava:31.1-jre")
 
-        implementation("io.grpc:grpc-netty-shaded:1.20.0")
-        implementation("io.grpc:grpc-protobuf:1.20.0")
-        implementation("io.grpc:grpc-stub:1.20.0")
+        implementation("io.grpc:grpc-netty-shaded:1.48.0")
+        implementation("io.grpc:grpc-protobuf:1.48.0")
+        implementation("io.grpc:grpc-stub:1.48.0")
+        implementation("io.grpc:grpc-api:1.48.0")
+
 
         annotationProcessor("org.projectlombok:lombok:1.18.16")
         testImplementation("junit", "junit", "4.12")
