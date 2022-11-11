@@ -1,9 +1,8 @@
-package io.panshi.grpc.etcd;
+package io.panshi.grpc.etcd.imp.registry;
 
 public final class EtcdNameResolver extends io.grpc.NameResolver {
 
     public EtcdNameResolver(String etcdMultiAddr) {
-
     }
 
     @Override

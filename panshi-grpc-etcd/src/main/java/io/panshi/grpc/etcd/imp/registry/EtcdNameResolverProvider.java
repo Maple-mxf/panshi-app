@@ -1,4 +1,4 @@
-package io.panshi.grpc.etcd;
+package io.panshi.grpc.etcd.imp.registry;
 
 import io.grpc.NameResolver;
 import io.grpc.NameResolverProvider;

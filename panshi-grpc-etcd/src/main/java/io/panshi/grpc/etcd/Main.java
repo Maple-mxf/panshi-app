@@ -1,6 +1,7 @@
 package io.panshi.grpc.etcd;
 
 import io.grpc.NameResolverRegistry;
+import io.panshi.grpc.etcd.imp.registry.EtcdNameResolverProvider;
 
 /**
  * @see io.grpc.NameResolver

@@ -49,7 +49,9 @@ subprojects {
         implementation("io.grpc:grpc-protobuf:1.48.0")
         implementation("io.grpc:grpc-stub:1.48.0")
         implementation("io.grpc:grpc-api:1.48.0")
-
+        runtimeOnly("io.grpc:grpc-services:1.48.0")
+        implementation("io.grpc:grpc-core:1.48.0")
+        implementation("io.grpc:grpc-context:1.48.0")
 
         annotationProcessor("org.projectlombok:lombok:1.18.16")
         testImplementation("junit", "junit", "4.12")
@@ -89,7 +91,9 @@ project("panshi-config-client") {
 project("panshi-grpc-etcd") {
     group = "io.panshi.grpc.etcd"
     version = "1.0"
-    dependencies {}
+    dependencies {
+        implementation("io.etcd:jetcd-core:0.7.3")
+    }
 }
 
 project("panshi-console-server") {
