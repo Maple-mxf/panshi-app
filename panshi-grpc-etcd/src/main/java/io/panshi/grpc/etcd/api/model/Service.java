@@ -5,10 +5,8 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class ServiceInfo {
-
+public class Service {
+    private String name;
     private String namespace;
-    private String service;
-    private String set;
-    private String method;
+    private LocalDateTime createTime;
 }

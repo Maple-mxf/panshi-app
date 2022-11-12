@@ -12,11 +12,9 @@ public interface Config {
     @Nonnull
     String[] getEtcdConnectionStrings();
 
-    @Nonnull
-    String getNamespace();
+    Optional<String> getNamespace();
 
-    @Nonnull
-    String getService();
+    Optional<String> getService();
 
     @Nullable
     Optional<String> getSet();
