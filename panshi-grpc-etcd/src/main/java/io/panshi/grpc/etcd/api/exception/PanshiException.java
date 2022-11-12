@@ -1,4 +1,9 @@
 package io.panshi.grpc.etcd.api.exception;
 
-public class PanshiException extends Exception{
+import lombok.Data;
+
+@Data
+public class PanshiException extends Exception {
+    private ErrorCode errorCode;
+    private String message;
 }
