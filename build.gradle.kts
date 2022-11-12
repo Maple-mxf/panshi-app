@@ -49,7 +49,7 @@ subprojects {
         implementation("io.grpc:grpc-protobuf:1.48.0")
         implementation("io.grpc:grpc-stub:1.48.0")
         implementation("io.grpc:grpc-api:1.48.0")
-        runtimeOnly("io.grpc:grpc-services:1.48.0")
+        implementation("io.grpc:grpc-services:1.48.0")
         implementation("io.grpc:grpc-core:1.48.0")
         implementation("io.grpc:grpc-context:1.48.0")
 
