@@ -1,5 +1,7 @@
 package io.panshi.grpc.etcd.api.config;
 
+import io.panshi.grpc.etcd.api.exception.PanshiException;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Optional;
@@ -10,7 +12,7 @@ public interface Config {
 
     // 获取etcd的连接地址
     @Nonnull
-    String[] getEtcdConnectionStrings();
+    EtcdConfig getEtcdConfig();
 
     Optional<String> getNamespace();
 
@@ -18,5 +20,7 @@ public interface Config {
 
     @Nullable
     Optional<String> getSet();
+
+    void check() throws PanshiException;
 
 }

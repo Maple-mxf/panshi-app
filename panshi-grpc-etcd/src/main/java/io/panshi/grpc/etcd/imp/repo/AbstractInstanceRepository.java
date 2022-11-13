@@ -1,9 +1,6 @@
 package io.panshi.grpc.etcd.imp.repo;
 
-import io.etcd.jetcd.ByteSequence;
-import io.etcd.jetcd.Client;
-import io.etcd.jetcd.Lease;
-import io.etcd.jetcd.Lock;
+import io.etcd.jetcd.*;
 import io.etcd.jetcd.common.exception.ErrorCode;
 import io.etcd.jetcd.common.exception.EtcdException;
 import io.etcd.jetcd.lease.LeaseGrantResponse;
@@ -13,6 +10,8 @@ import io.etcd.jetcd.lock.LockResponse;
 import io.etcd.jetcd.lock.UnlockResponse;
 import io.grpc.stub.StreamObserver;
 import io.panshi.grpc.etcd.api.config.Config;
+import io.panshi.grpc.etcd.api.config.EtcdConfig;
+import io.panshi.grpc.etcd.api.exception.PanshiException;
 import io.panshi.grpc.etcd.api.repo.Repository;
 import io.panshi.grpc.etcd.imp.util.TimeUtils;
 import org.slf4j.Logger;
@@ -24,25 +23,43 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.function.BiConsumer;
 
 public abstract class AbstractInstanceRepository implements Repository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractInstanceRepository.class);
 
-    private final Config config;
     private final Client client;
     //  一个客户端一个租约，全局唯一
-    private long leaseID;
+    private long leaseId;
 
+    /**
+     * https://etcd.io/docs/v3.4/dev-guide/api_reference_v3/#service-auth-etcdserveretcdserverpbrpcproto
+     * @param config
+     */
     protected AbstractInstanceRepository(Config config) {
-        this.config = config;
-        this.client = Client.builder()
-//                .authInterceptors()
-                .endpoints(config.getEtcdConnectionStrings()).build();
+
+        EtcdConfig etcdConfig = config.getEtcdConfig();
+
+        ClientBuilder clientBuilder = Client.builder()
+                .endpoints(etcdConfig.getEndpoints());
+        if (etcdConfig.getUser() != null && !etcdConfig.getUser().isEmpty()){
+            clientBuilder.user(ByteSequence.from(
+                    etcdConfig.getUser().getBytes(StandardCharsets.UTF_8)));
+        }
+        if (etcdConfig.getPassword() != null && !etcdConfig.getPassword().isEmpty()){
+            clientBuilder.user(ByteSequence.from(
+                    etcdConfig.getPassword().getBytes(StandardCharsets.UTF_8)));
+        }
+
+        this.client = clientBuilder.build();
 
         // 申请租约
         applyLeaseId();
+    }
+
+    @Override
+    public long getLeaseId() {
+        return this.leaseId;
     }
 
     @Nonnull
@@ -59,15 +76,15 @@ public abstract class AbstractInstanceRepository implements Repository {
                 LOGGER.error("apply lease id failed, exception {} ", throwable.getMessage());
                 return;
             }
-            AbstractInstanceRepository.this.leaseID = grantResponse.getID();
+            AbstractInstanceRepository.this.leaseId = grantResponse.getID();
             LOGGER.info("lease id apply success, lease id = {} ttl = {}, next keep alive for lease",
                     grantResponse.getID(), grantResponse.getTTL());
 
-            // 自动无限期续约，直到客户端自动revoker掉锁
-            leaseClient.keepAlive(AbstractInstanceRepository.this.leaseID,
+            // 自动无限期续约，直到客户端revoke掉锁
+            leaseClient.keepAlive(AbstractInstanceRepository.this.leaseId,
                     new StreamObserver<LeaseKeepAliveResponse>() {
                         @Override public void onNext(LeaseKeepAliveResponse value) {
-                            AbstractInstanceRepository.this.leaseID = value.getID();
+                            AbstractInstanceRepository.this.leaseId = value.getID();
                             LOGGER.info("lease keep alive success, leaseID = {}, ttl = {}, now = {} ",
                                     value.getID(), value.getTTL(), TimeUtils.getNowTime());
                         }
@@ -98,18 +115,25 @@ public abstract class AbstractInstanceRepository implements Repository {
      * @return
      */
     @Override
-    public boolean lock(String lockKey, int leaseTime) {
+    public String lock(String lockKey, int leaseTime) throws PanshiException {
         Lock lockClient = this.client.getLockClient();
-        ByteSequence lockName = ByteSequence.from(lockKey.getBytes(StandardCharsets.UTF_8));
-        CompletableFuture<LockResponse> future = lockClient.lock(lockName, leaseID);
+        ByteSequence lockBytesKey = ByteSequence.from(lockKey.getBytes(StandardCharsets.UTF_8));
+        CompletableFuture<LockResponse> future = lockClient.lock(lockBytesKey, leaseId);
+        LockResponse response;
         try {
-            LockResponse response = future.get(3, TimeUnit.SECONDS);
-            ByteSequence key = response.getKey();
+            response = future.get(5, TimeUnit.SECONDS);
+            return  response.getKey().toString(StandardCharsets.UTF_8);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             e.printStackTrace();
-            return false;
+            LOGGER.error("a");
+            throw PanshiException.newError(
+                    io.panshi.grpc.etcd.api.exception.ErrorCode.LOCK_FAIL,"");
+        }catch (EtcdException e){
+            e.printStackTrace();
+            LOGGER.error("V");
+            throw PanshiException.newError(
+                    io.panshi.grpc.etcd.api.exception.ErrorCode.LOCK_FAIL,"");
         }
-        return true;
     }
 
     /**
@@ -135,7 +159,7 @@ public abstract class AbstractInstanceRepository implements Repository {
     @Override
     public void stop() {
         Lease leaseClient = this.client.getLeaseClient();
-        CompletableFuture<LeaseRevokeResponse> future = leaseClient.revoke(this.leaseID);
+        CompletableFuture<LeaseRevokeResponse> future = leaseClient.revoke(this.leaseId);
         future.whenComplete((revokeResponse, throwable) -> {
             if (throwable == null) {
                 LOGGER.info("lease revoke success, revoke response {} ", revokeResponse);

@@ -1,6 +1,7 @@
 package io.panshi.grpc.etcd.api.repo;
 
 import io.etcd.jetcd.Client;
+import io.panshi.grpc.etcd.api.exception.PanshiException;
 
 import javax.annotation.Nonnull;
 
@@ -14,12 +15,14 @@ public interface Repository {
     @Nonnull
     Client getRepoClient();
 
+    long getLeaseId();
+
     /**
      * @param lockKey
      * @param leaseTime
      * @return
      */
-    boolean lock(String lockKey, int leaseTime);
+    String lock(String lockKey, int leaseTime) throws PanshiException;
 
     /**
      * @param lockKey

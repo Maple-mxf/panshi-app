@@ -1,15 +1,18 @@
 package io.panshi.grpc.etcd.imp.config;
 
 import io.panshi.grpc.etcd.api.config.Config;
+import io.panshi.grpc.etcd.api.config.EtcdConfig;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ConfigImp implements Config {
 
+    @Nonnull
     @Override
-    public String[] getEtcdConnectionStrings() {
-        return new String[0];
+    public EtcdConfig getEtcdConfig() {
+        return null;
     }
 
     @Override
