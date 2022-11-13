@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
  * 基于轮询算法的平滑加权算法
  * 实现思路：所选中的服务器的权重减去所有机器的权重加起来的总值，作为接下来的动态权重，没被选中的服务器权重不变
  * 优势：可以达到交叉选取的效果
+ * https://www.cnblogs.com/jojop/p/13997273.html
  */
 public class DynamicWeightRoundRobinLoadBalancer implements LoadBalancer {
 
