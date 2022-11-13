@@ -6,5 +6,10 @@ import java.util.List;
 
 public interface Router {
 
-    List<Instance> selectInstances();
+    /**
+     * 选取符合条件的实例列表
+     * @param instanceList
+     * @return
+     */
+    List<Instance> selectInstanceList(List<Instance> instanceList);
 }

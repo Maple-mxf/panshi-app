@@ -36,4 +36,10 @@ public class ConfigImp implements Config {
     public void check() throws PanshiException {
 
     }
+
+    @Nullable
+    @Override
+    public Optional<Integer> getPort() {
+        return Optional.empty();
+    }
 }

@@ -28,7 +28,10 @@ public class ConsumerImp implements Consumer {
 
     @Override
     public List<Instance> listHealthInstances(ServiceKey key) {
-        return instanceCache.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
+        return instanceCache.values()
+                .stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
     }
 
     @Override
