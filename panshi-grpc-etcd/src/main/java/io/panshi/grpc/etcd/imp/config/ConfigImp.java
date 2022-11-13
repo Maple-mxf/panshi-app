@@ -2,6 +2,7 @@ package io.panshi.grpc.etcd.imp.config;
 
 import io.panshi.grpc.etcd.api.config.Config;
 import io.panshi.grpc.etcd.api.config.EtcdConfig;
+import io.panshi.grpc.etcd.api.exception.PanshiException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -29,5 +30,10 @@ public class ConfigImp implements Config {
     @Override
     public Optional<String> getSet() {
         return Optional.empty();
+    }
+
+    @Override
+    public void check() throws PanshiException {
+
     }
 }

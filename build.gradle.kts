@@ -93,6 +93,10 @@ project("panshi-grpc-etcd") {
     version = "1.0"
     dependencies {
         implementation("io.etcd:jetcd-core:0.7.3")
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0")
     }
 }
 

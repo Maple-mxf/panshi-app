@@ -21,6 +21,9 @@ public interface Config {
     @Nullable
     Optional<String> getSet();
 
+    @Nullable
+    Optional<Integer> getPort();
+
     void check() throws PanshiException;
 
 }
