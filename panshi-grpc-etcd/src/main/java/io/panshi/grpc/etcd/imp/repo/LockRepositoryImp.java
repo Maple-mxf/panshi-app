@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class LockRepositoryImp extends AbstractRepository implements LockRepository {
+public class LockRepositoryImp extends AbstractTempRepository implements LockRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LockRepositoryImp.class);
 
@@ -27,16 +27,11 @@ public class LockRepositoryImp extends AbstractRepository implements LockReposit
     }
 
     @Override
-    public long getClientGlobalLeaseId() {
-        return 0;
-    }
-
-    @Override
     public String lock(String identifierName,int waitSeconds) throws PanshiException {
         Lock lockClient = this.getRepoClient().getLockClient();
         ByteSequence identifierBytesName = ByteSequence.from(identifierName.getBytes(StandardCharsets.UTF_8));
         CompletableFuture<LockResponse> future = lockClient
-                .lock(identifierBytesName, getClientGlobalLeaseId());
+                .lock(identifierBytesName, getLeaseId());
 
         LockResponse response;
         try {
@@ -51,7 +46,7 @@ public class LockRepositoryImp extends AbstractRepository implements LockReposit
             e.printStackTrace();
             LOGGER.error("Etcd exception {} ",e.getMessage());
             if (ErrorCode.NOT_FOUND.equals(e.getErrorCode())){
-                LOGGER.error("lease id not found leaseId = {} ", getClientGlobalLeaseId());
+                LOGGER.error("lease id not found leaseId = {} ", getLeaseId());
                 applyLeaseId();
                 throw PanshiException.newError(
                         io.panshi.grpc.etcd.api.exception.ErrorCode.LOCK_FAIL,

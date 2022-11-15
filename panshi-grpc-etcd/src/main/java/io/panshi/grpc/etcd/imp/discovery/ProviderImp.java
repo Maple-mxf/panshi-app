@@ -113,7 +113,7 @@ public class ProviderImp implements Provider {
             }
         }
 
-        // 3 put instance info
+        // 3 register info
         try{
             instanceRepository.putInstanceInfo(instance);
             return true;

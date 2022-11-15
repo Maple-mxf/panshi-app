@@ -9,10 +9,7 @@ import java.util.List;
 /**
  * 给予
  */
-public interface InstanceRepository extends Repository {
-
-
-
+public interface InstanceRepository extends TempRepository {
 
     void watchInstanceChangeStream( WatchInstanceListener listener  );
 

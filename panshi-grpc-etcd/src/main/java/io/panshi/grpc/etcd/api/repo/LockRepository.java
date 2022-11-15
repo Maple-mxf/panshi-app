@@ -2,9 +2,7 @@ package io.panshi.grpc.etcd.api.repo;
 
 import io.panshi.grpc.etcd.api.exception.PanshiException;
 
-public interface LockRepository {
-
-    long getClientGlobalLeaseId();
+public interface LockRepository extends TempRepository {
 
     /**
      * https://etcd.io/docs/v3.4/dev-guide/api_concurrency_reference_v3/

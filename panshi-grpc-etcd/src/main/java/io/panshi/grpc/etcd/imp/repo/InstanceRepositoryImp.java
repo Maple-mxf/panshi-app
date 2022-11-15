@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
-public class InstanceRepositoryImp extends AbstractRepository implements InstanceRepository {
+public class InstanceRepositoryImp extends AbstractTempRepository implements InstanceRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InstanceRepositoryImp.class);
     private static final int DEFAULT_TIMEOUT_SECONDS = 3;
@@ -54,7 +54,7 @@ public class InstanceRepositoryImp extends AbstractRepository implements Instanc
         try {
             ByteSequence value = ByteSequence.from(MAPPER.writeValueAsString(instance)
                     .getBytes(StandardCharsets.UTF_8));
-            PutOption option = PutOption.newBuilder().withLeaseId(this.getClientGlobalLeaseId())
+            PutOption option = PutOption.newBuilder().withLeaseId(this.getLeaseId())
                     .build();
             CompletableFuture<PutResponse> future = kvClient.put(path, value, option);
             PutResponse response = future.get(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
@@ -154,12 +154,12 @@ public class InstanceRepositoryImp extends AbstractRepository implements Instanc
 
     @Override
     public void deleteInstance(Instance instance) throws PanshiException {
-        if (this.getClientGlobalLeaseId() == 0L ){
+        if (this.getLeaseId() == 0L ){
             throw new PanshiException(ErrorCode.DELETE_INSTANCE_FAILED,
                     "already delete instance info");
         }
         Lease leaseClient = this.getRepoClient().getLeaseClient();
-        CompletableFuture<LeaseRevokeResponse> future = leaseClient.revoke(this.getClientGlobalLeaseId());
+        CompletableFuture<LeaseRevokeResponse> future = leaseClient.revoke(this.getLeaseId());
         try {
             LeaseRevokeResponse response = future.get(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
             LOGGER.info("delete instance info success {}",response);
@@ -171,10 +171,25 @@ public class InstanceRepositoryImp extends AbstractRepository implements Instanc
             e.printStackTrace();
             if (io.etcd.jetcd.common.exception.ErrorCode.NOT_FOUND.equals(e.getErrorCode())){
                 LOGGER.error("revoke lease error, leaseId [{}] not found ",
-                        this.getClientGlobalLeaseId());
+                        this.getLeaseId());
                 throw PanshiException.newError(ErrorCode.DELETE_INSTANCE_FAILED,
                         e.getMessage());
             }
         }
+    }
+
+    @Override
+    public long getLeaseId() {
+        return 0;
+    }
+
+    @Override
+    public void keepAlive() {
+
+    }
+
+    @Override
+    public long getTTL() {
+        return 0;
     }
 }

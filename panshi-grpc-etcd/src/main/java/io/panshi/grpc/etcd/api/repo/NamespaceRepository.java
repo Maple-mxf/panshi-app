@@ -5,7 +5,7 @@ import io.panshi.grpc.etcd.api.model.Namespace;
 
 import java.util.List;
 
-public interface NamespaceRepository {
+public interface NamespaceRepository extends PersistenceRepository {
 
     List<Namespace> getNamespaceList();
 

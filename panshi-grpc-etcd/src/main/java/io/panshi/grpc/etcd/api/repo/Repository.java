@@ -1,7 +1,6 @@
 package io.panshi.grpc.etcd.api.repo;
 
 import io.etcd.jetcd.Client;
-import io.panshi.grpc.etcd.api.exception.PanshiException;
 
 import javax.annotation.Nonnull;
 
@@ -18,12 +17,6 @@ public interface Repository {
 
     @Nonnull
     Client getRepoClient();
-
-    /**
-     *
-     * @return lease id
-     */
-    long getClientGlobalLeaseId();
 
     void stop();
 }

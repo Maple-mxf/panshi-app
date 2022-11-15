@@ -5,7 +5,7 @@ import io.panshi.grpc.etcd.api.model.Service;
 
 import java.util.List;
 
-public interface ServiceRepository {
+public interface ServiceRepository extends PersistenceRepository {
 
     void putService(Service service) throws PanshiException;
 
