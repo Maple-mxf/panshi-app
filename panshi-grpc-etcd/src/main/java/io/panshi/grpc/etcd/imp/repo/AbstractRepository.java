@@ -1,5 +1,6 @@
 package io.panshi.grpc.etcd.imp.repo;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.etcd.jetcd.ByteSequence;
 import io.etcd.jetcd.Client;
 import io.etcd.jetcd.ClientBuilder;
@@ -33,6 +34,8 @@ public abstract class AbstractRepository implements Repository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractRepository.class);
 
+    protected static final ObjectMapper MAPPER = new ObjectMapper();
+
     private final Client client;
     //  一个客户端全局的租约ID，全局唯一
     private final AtomicLong clientGlobalLeaseId = new AtomicLong(0);
@@ -41,7 +44,7 @@ public abstract class AbstractRepository implements Repository {
      * https://etcd.io/docs/v3.4/dev-guide/api_reference_v3/#service-auth-etcdserveretcdserverpbrpcproto
      * @param config
      */
-    protected AbstractRepository(Config config) {
+    protected AbstractRepository(Config config) throws PanshiException {
         EtcdConfig etcdConfig = config.getEtcdConfig();
         ClientBuilder clientBuilder = Client.builder()
                 .endpoints(etcdConfig.getEndpoints());
@@ -74,7 +77,7 @@ public abstract class AbstractRepository implements Repository {
         this.clientGlobalLeaseId.set(0);
     }
 
-    private synchronized void applyLeaseId() {
+    protected synchronized void applyLeaseId() {
         Lease leaseClient = this.client.getLeaseClient();
         CompletableFuture<LeaseGrantResponse> completableFuture = leaseClient.grant(30);
         completableFuture.whenComplete((grantResponse, throwable) -> {
@@ -116,58 +119,7 @@ public abstract class AbstractRepository implements Repository {
     }
 
 
-    @Override
-    public String lock(String identifierName,int waitSeconds) throws PanshiException {
-        Lock lockClient = this.client.getLockClient();
-        ByteSequence identifierBytesName = ByteSequence.from(identifierName.getBytes(StandardCharsets.UTF_8));
-        CompletableFuture<LockResponse> future = lockClient
-                .lock(identifierBytesName, clientGlobalLeaseId.get());
 
-        LockResponse response;
-        try {
-            response = future.get(waitSeconds, TimeUnit.SECONDS);
-            return  response.getKey().toString(StandardCharsets.UTF_8);
-        } catch (InterruptedException | ExecutionException | TimeoutException e) {
-            e.printStackTrace();
-            LOGGER.error("jvm internal error. lock task execute error {} ",e.getMessage());
-            throw PanshiException.newError(
-                    io.panshi.grpc.etcd.api.exception.ErrorCode.LOCK_FAIL,"");
-        }catch (EtcdException e){
-            e.printStackTrace();
-            LOGGER.error("Etcd exception {} ",e.getMessage());
-            if (ErrorCode.NOT_FOUND.equals(e.getErrorCode())){
-                LOGGER.error("lease id not found leaseId = {} ", clientGlobalLeaseId);
-                applyLeaseId();
-                throw PanshiException.newError(
-                        io.panshi.grpc.etcd.api.exception.ErrorCode.LOCK_FAIL,
-                        "leaseId = {} not found, continue apply lease ");
-            }else{
-                throw PanshiException.newError(
-                        io.panshi.grpc.etcd.api.exception.ErrorCode.LOCK_FAIL,
-                        String.format("unknown etcd exception etcd code = %s, message = %s ",
-                                e.getErrorCode(),e.getMessage()));
-            }
-        }
-    }
-
-    @Override
-    public void unLock(String lockKey, int waitSeconds) throws PanshiException {
-        Lock lockClient = this.client.getLockClient();
-        ByteSequence lockBytesKey = ByteSequence.from(lockKey.getBytes(StandardCharsets.UTF_8));
-        CompletableFuture<UnlockResponse> future = lockClient.unlock(lockBytesKey);
-        try {
-            UnlockResponse response = future.get(waitSeconds, TimeUnit.SECONDS);
-            LOGGER.info("unlock success, response = {} ",response);
-        } catch (InterruptedException | ExecutionException | TimeoutException e) {
-            e.printStackTrace();
-            LOGGER.error("jvm internal error. lock task execute error {} ",e.getMessage());
-            throw PanshiException.newError(
-                    io.panshi.grpc.etcd.api.exception.ErrorCode.UNLOCK_FAIL,e.getMessage());
-        }catch (EtcdException e){
-            e.printStackTrace();
-            LOGGER.error("Etcd exception {} ",e.getMessage());
-        }
-    }
 
     @Override
     public void stop() {

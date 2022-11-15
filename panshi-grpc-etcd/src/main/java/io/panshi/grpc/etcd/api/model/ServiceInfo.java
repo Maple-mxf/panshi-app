@@ -5,6 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
+@Deprecated
 public class ServiceInfo {
 
     private String namespace;

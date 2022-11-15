@@ -6,8 +6,6 @@ import java.time.LocalDateTime;
 
 @Data
 public class Namespace {
-
     private String name;
-    private String description;
     private LocalDateTime createTime;
 }

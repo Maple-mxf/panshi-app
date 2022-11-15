@@ -11,9 +11,8 @@ import java.util.List;
  */
 public interface InstanceRepository extends Repository {
 
-    // etcd存储的根路径
-    // ${ROOT_PATH}/${namespace}/${set}/${service} : ${serviceInfo}
-    String ROOT_PATH = "/panshi/grpc";
+
+
 
     void watchInstanceChangeStream( WatchInstanceListener listener  );
 

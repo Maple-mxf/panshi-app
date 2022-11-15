@@ -11,5 +11,5 @@ public interface NamespaceRepository {
 
     void putNamespace(Namespace namespace) throws PanshiException;
 
-    void deleteNamespace(Namespace namespace) throws PanshiException;
+    boolean exist(String namespace) throws PanshiException ;
 }

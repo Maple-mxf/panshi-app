@@ -8,5 +8,6 @@ import java.time.LocalDateTime;
 public class Service {
     private String name;
     private String namespace;
+    private String set;
     private LocalDateTime createTime;
 }

@@ -16,4 +16,8 @@ public class PanshiException extends Exception {
     public static PanshiException newError(ErrorCode errorCode, String message){
         return new PanshiException(errorCode,message);
     }
+
+    public String formatMessage(){
+        return String.format("code=%s,message=%s",errorCode.name(), message);
+    }
 }

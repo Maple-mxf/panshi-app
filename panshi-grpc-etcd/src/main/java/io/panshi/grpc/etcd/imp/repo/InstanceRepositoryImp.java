@@ -40,14 +40,10 @@ public class InstanceRepositoryImp extends AbstractRepository implements Instanc
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InstanceRepositoryImp.class);
     private static final int DEFAULT_TIMEOUT_SECONDS = 3;
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    protected static final ObjectMapper MAPPER = new ObjectMapper();
 
-    protected InstanceRepositoryImp(Config config) {
+    protected InstanceRepositoryImp(Config config) throws PanshiException {
         super(config);
-    }
-
-    public static InstanceRepositoryImp getInstance(){
-        return new InstanceRepositoryImp(null);
     }
 
     @Override
