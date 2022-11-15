@@ -94,7 +94,6 @@ public class ConsumerImp implements Consumer {
         this.instanceCache.putAll(instanceMap);
     }
 
-
     @Override
     public void registerListener(WatchServiceListener listener) {
         instanceRepository.watchInstanceChangeEvent(listener);

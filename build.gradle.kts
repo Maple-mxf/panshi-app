@@ -44,7 +44,6 @@ subprojects {
     dependencies {
         implementation("org.projectlombok:lombok:1.18.16")
         implementation("com.google.guava:guava:31.1-jre")
-
         implementation("io.grpc:grpc-netty-shaded:1.48.0")
         implementation("io.grpc:grpc-protobuf:1.48.0")
         implementation("io.grpc:grpc-stub:1.48.0")
@@ -65,7 +64,6 @@ tasks.getByName<Test>("test") {
 project("config-provider") {
     group = "io.panshi.config.provider"
     version = "1.0"
-
     dependencies {
         implementation(project(":protocol"))
         implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
@@ -116,12 +114,9 @@ project("grpc-discovery") {
 project("protocol") {
     group = "io.panshi.protocol"
     version = "1.0"
-
     dependencies {}
-
     protobuf {
         generatedFilesBaseDir = "$projectDir/src"
-
         protoc {
             artifact = "com.google.protobuf:protoc:3.6.1"
         }
@@ -133,7 +128,6 @@ project("protocol") {
         generateProtoTasks {
             ofSourceSet("main").forEach {
                 it.plugins {
-                    // Apply the "grpc" plugin whose spec is defined above, without options.
                     id("grpc")
                 }
             }
@@ -141,18 +135,18 @@ project("protocol") {
     }
     idea {
         module {
-            generatedSourceDirs.addAll(listOf(file("${protobuf.protobuf.generatedFilesBaseDir}/main/grpc"), file("${protobuf.protobuf.generatedFilesBaseDir}/main/java")))
+            generatedSourceDirs.addAll(listOf(
+                    file("${protobuf.protobuf.generatedFilesBaseDir}/main/grpc"),
+                    file("${protobuf.protobuf.generatedFilesBaseDir}/main/java")
+            ))
         }
     }
-
     sourceSets {
-
         main {
             proto {
                 srcDir("src/main/proto")
             }
         }
-
         getByName("main").java.srcDirs("src/main/grpc")
         getByName("main").java.srcDirs("src/main/java")
     }
