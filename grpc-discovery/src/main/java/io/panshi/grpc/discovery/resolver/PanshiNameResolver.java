@@ -36,7 +36,7 @@ public final class PanshiNameResolver extends NameResolver {
     public PanshiNameResolver(URI targetURI, Config config, Consumer consumer) {
         this.host = targetURI.getHost();
         this.namespace = config.getNamespace().orElseThrow(()->new IllegalArgumentException(""));
-        this.service = config.getService().orElseThrow(()->new IllegalArgumentException(""));
+        this.service = config.getApplicationName().orElseThrow(()->new IllegalArgumentException(""));
         this.set = Objects.requireNonNull(config.getSet()).orElse("default");
         this.consumer = consumer;
     }

@@ -39,18 +39,15 @@ public class ProviderImp implements Provider {
     private final Instance instance;
 
     public ProviderImp(Config config) throws PanshiException {
-        this.namespace = config.getNamespace()
-                .orElseThrow(() -> new IllegalArgumentException("namespace require"));
-        this.service = config.getService()
-                .orElseThrow(() -> new IllegalArgumentException("service require"));
-        this.set = config.getSet().orElse(System.getenv(Config.SET_ENV_VAR));
+        this.namespace = config.getNamespace();
+        this.service = config.getApplicationName();
+        this.set = config.getSet();
 
         this.instance = new Instance();
         this.instance.setNamespace(namespace);
         this.instance.setSet(set);
         this.instance.setService(service);
 //        this.instance.setIp(config.get);
-        this.instance.setPort(config.getPort().get());
     }
 
     @Override
@@ -146,4 +143,11 @@ public class ProviderImp implements Provider {
         }
     }
 
+    @Override
+    public void stop() {
+        this.instanceRepository.stop();
+        this.lockRepository.stop();
+        this.namespaceRepository.stop();
+        this.serviceRepository.stop();
+    }
 }

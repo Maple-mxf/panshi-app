@@ -30,7 +30,7 @@ public abstract class AbstractRepository implements Repository {
     protected AbstractRepository(Config config) throws PanshiException {
         EtcdConfig etcdConfig = config.getEtcdConfig();
         ClientBuilder clientBuilder = Client.builder()
-                .endpoints(etcdConfig.getEndpoints());
+                .endpoints(etcdConfig.getEndpoint());
         if (etcdConfig.getUser() != null && !etcdConfig.getUser().isEmpty()){
             clientBuilder.user(ByteSequence.from(
                     etcdConfig.getUser().getBytes(StandardCharsets.UTF_8)));
