@@ -16,13 +16,8 @@ import org.slf4j.LoggerFactory;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
-
-/**
- * @see Consumer
- */
 public final class PanshiNameResolver extends NameResolver {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PanshiNameResolver.class);
@@ -35,9 +30,9 @@ public final class PanshiNameResolver extends NameResolver {
 
     public PanshiNameResolver(URI targetURI, Config config, Consumer consumer) {
         this.host = targetURI.getHost();
-        this.namespace = config.getNamespace().orElseThrow(()->new IllegalArgumentException(""));
-        this.service = config.getApplicationName().orElseThrow(()->new IllegalArgumentException(""));
-        this.set = Objects.requireNonNull(config.getSet()).orElse("default");
+        this.namespace = config.getNamespace();
+        this.service = config.getApplicationName();
+        this.set = config.getSet();
         this.consumer = consumer;
     }
 

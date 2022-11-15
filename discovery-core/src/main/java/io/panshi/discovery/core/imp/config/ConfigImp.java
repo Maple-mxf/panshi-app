@@ -73,7 +73,6 @@ public class ConfigImp implements Config {
     private String applicationName;
     private String set;
 
-
     @Nonnull
     @Override
     public EtcdConfig getEtcdConfig() {
