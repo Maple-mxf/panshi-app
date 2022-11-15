@@ -1,17 +1,15 @@
 package io.panshi.discovery.core.api.repo;
 
-import io.panshi.discovery.core.api.event.WatchInstanceListener;
+import io.panshi.discovery.core.api.event.WatchServiceListener;
 import io.panshi.discovery.core.api.exception.PanshiException;
 import io.panshi.discovery.core.api.model.Instance;
 
 import java.util.List;
 
-/**
- * 给予
- */
+
 public interface InstanceRepository extends TempRepository {
 
-    void watchInstanceChangeStream( WatchInstanceListener listener  );
+    void watchInstanceChangeEvent(WatchServiceListener listener  );
 
     /**
      * 新增服务实例

@@ -11,7 +11,7 @@ public class Instance {
     private String namespace;
     private String service;
     private String set; // 可以为空，默认为default
-    private String ip;
+    private String host;
     private int port;
     private long weight; // 开发者配置的静态权重参数检查，必须大于0，在客户端负载均衡的时候可以做为动态权重使用
     @JsonIgnore private transient long dynamicWeight; // 动态权重

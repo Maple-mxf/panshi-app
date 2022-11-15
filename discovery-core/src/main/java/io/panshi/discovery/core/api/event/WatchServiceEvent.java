@@ -6,8 +6,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class WatchInstanceEvent {
-
+public class WatchServiceEvent {
     public enum Type{
         REGISTER,
         DEREGISTER

@@ -1,8 +1,9 @@
 package io.panshi.discovery.core.imp.discovery;
 
+import io.panshi.discovery.core.api.config.Config;
 import io.panshi.discovery.core.api.discovery.Consumer;
-import io.panshi.discovery.core.api.event.WatchInstanceEvent;
-import io.panshi.discovery.core.api.event.WatchInstanceListener;
+import io.panshi.discovery.core.api.event.WatchServiceEvent;
+import io.panshi.discovery.core.api.event.WatchServiceListener;
 import io.panshi.discovery.core.api.exception.PanshiException;
 import io.panshi.discovery.core.api.model.Instance;
 import io.panshi.discovery.core.api.model.RpcInvokeResult;
@@ -27,14 +28,25 @@ public class ConsumerImp implements Consumer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerImp.class);
 
-    private final RepositoryFactory repositoryFactory = new RepositoryFactoryImp(null);
-    private final InstanceRepository instanceRepository = repositoryFactory.getInstanceRepository();
+    private final RepositoryFactory repositoryFactory ;
+    private final InstanceRepository instanceRepository ;
 
     private final WeightRandomLoadBalancer loadBalancer = new WeightRandomLoadBalancer();
+    private final WatchServiceListener  defaultServiceChangeListener = new ServiceChangeStreamListener();
 
     private final ConcurrentHashMap<ServiceKey, List<Instance>> instanceCache = new ConcurrentHashMap<>();
+//    private final EventBus eventBus = new AsyncEventBus(
+//            Executors.newSingleThreadExecutor(),
+//            (exception, context) -> LOGGER.error("received event bus error {} event {} ",
+//                    exception.getMessage(),context.getEvent()));
+    private final Config config;
 
-    public ConsumerImp() throws PanshiException {
+    public ConsumerImp(Config config) throws PanshiException {
+        this.config = config;
+        config.check();
+
+        this.repositoryFactory = new RepositoryFactoryImp(config);
+        this.instanceRepository = repositoryFactory.getInstanceRepository();
     }
 
     @Override
@@ -61,8 +73,7 @@ public class ConsumerImp implements Consumer {
     @Override
     public void start() {
         initCache();
-        watch();
-
+        registerListener(defaultServiceChangeListener);
         LOGGER.info("consumer started");
     }
 
@@ -83,15 +94,17 @@ public class ConsumerImp implements Consumer {
         this.instanceCache.putAll(instanceMap);
     }
 
-    private void watch() {
-        // 监听服务Instance的注册
-        instanceRepository.watchInstanceChangeStream(new InstanceChangeStreamListener());
+
+    @Override
+    public void registerListener(WatchServiceListener listener) {
+        instanceRepository.watchInstanceChangeEvent(listener);
+        LOGGER.info("");
     }
 
-    private class InstanceChangeStreamListener implements WatchInstanceListener {
+     class ServiceChangeStreamListener implements WatchServiceListener {
         @Override
-        public void handle(WatchInstanceEvent event) {
-            if (WatchInstanceEvent.Type.REGISTER.equals(event.getType())) {
+        public void handle(WatchServiceEvent event) {
+            if (WatchServiceEvent.Type.REGISTER.equals(event.getType())) {
                 ServiceInfo serviceInfo = new ServiceInfo();
                 serviceInfo.setNamespace(event.getInstance().getNamespace());
                 serviceInfo.setService(event.getInstance().getService());
@@ -110,5 +123,10 @@ public class ConsumerImp implements Consumer {
                 instanceCache.put(serviceKey, instanceList);
             }
         }
+    }
+
+    @Override
+    public void stop() {
+        this.instanceRepository.stop();
     }
 }

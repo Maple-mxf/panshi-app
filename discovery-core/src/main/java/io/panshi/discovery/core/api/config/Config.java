@@ -10,6 +10,8 @@ public interface Config {
 
     String SET_ENV_VAR = "biz_set";
 
+
+
     // 获取etcd的连接地址
     @Nonnull
     EtcdConfig getEtcdConfig();

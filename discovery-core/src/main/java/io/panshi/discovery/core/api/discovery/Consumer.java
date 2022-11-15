@@ -1,5 +1,6 @@
 package io.panshi.discovery.core.api.discovery;
 
+import io.panshi.discovery.core.api.event.WatchServiceListener;
 import io.panshi.discovery.core.api.model.Instance;
 import io.panshi.discovery.core.api.model.RpcInvokeResult;
 import io.panshi.discovery.core.api.model.ServiceKey;
@@ -23,6 +24,9 @@ public interface Consumer extends DiscoveryClient {
      */
     @Nullable
     Instance getHealthInstance(ServiceKey key);
+
+    // 监听服务实例数据变化
+    void registerListener(WatchServiceListener listener);
 
     // TODO 上报调用结果来进行统计
     // 参考opentelemetry https://opentelemetry.io/docs/collector/

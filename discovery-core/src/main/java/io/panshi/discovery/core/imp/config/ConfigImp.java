@@ -10,6 +10,10 @@ import java.util.Optional;
 
 public class ConfigImp implements Config {
 
+    public static Config init(){
+        return null;
+    }
+
     @Nonnull
     @Override
     public EtcdConfig getEtcdConfig() {

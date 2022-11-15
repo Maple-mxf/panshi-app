@@ -16,8 +16,8 @@ import io.etcd.jetcd.options.PutOption;
 import io.etcd.jetcd.options.WatchOption;
 import io.etcd.jetcd.watch.WatchEvent;
 import io.panshi.discovery.core.api.config.Config;
-import io.panshi.discovery.core.api.event.WatchInstanceEvent;
-import io.panshi.discovery.core.api.event.WatchInstanceListener;
+import io.panshi.discovery.core.api.event.WatchServiceEvent;
+import io.panshi.discovery.core.api.event.WatchServiceListener;
 import io.panshi.discovery.core.api.exception.ErrorCode;
 import io.panshi.discovery.core.api.exception.PanshiException;
 import io.panshi.discovery.core.api.model.Instance;
@@ -27,6 +27,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -125,20 +126,26 @@ public class InstanceRepositoryImp extends AbstractTempRepository implements Ins
     }
 
     @Override
-    public void watchInstanceChangeStream( WatchInstanceListener listener  ) {
+    public void watchInstanceChangeEvent(WatchServiceListener listener  ) {
         ByteSequence key = ByteSequence.from(InstanceRepository.ROOT_PATH,
                 StandardCharsets.UTF_8);
         WatchOption option = WatchOption.newBuilder().isPrefix(true).build();
+
         this.getRepoClient().getWatchClient()
                 .watch(key, option,
                         response -> {
                             List<WatchEvent> events = response.getEvents();
                             for (WatchEvent event : events) {
-                                WatchInstanceEvent instanceEvent = new WatchInstanceEvent();
+                                WatchServiceEvent instanceEvent = new WatchServiceEvent();
+                                instanceEvent.setTime(LocalDateTime.now());
+
+                                // TODO 观察实例的增删改查
+
+
                                 if ( WatchEvent.EventType.PUT . equals( event.getEventType() )) {
-                                    instanceEvent.setType(WatchInstanceEvent.Type.REGISTER);
+                                    instanceEvent.setType(WatchServiceEvent.Type.REGISTER);
                                 }else if ( WatchEvent.EventType.DELETE . equals( event.getEventType() )) {
-                                    instanceEvent.setType(WatchInstanceEvent.Type.REGISTER);
+                                    instanceEvent.setType(WatchServiceEvent.Type.REGISTER);
                                 }else{
                                     continue; // TODO
                                 }
