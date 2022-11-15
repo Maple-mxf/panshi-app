@@ -100,6 +100,19 @@ project("discovery-core") {
     }
 }
 
+project("grpc-discovery") {
+    group = "io.panshi.grpc.discovery"
+    version = "1.0"
+    dependencies {
+        implementation(":discovery-core")
+        implementation("io.etcd:jetcd-core:0.7.3")
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+        implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0")
+    }
+}
+
 project("protocol") {
     group = "io.panshi.protocol"
     version = "1.0"
