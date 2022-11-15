@@ -20,12 +20,11 @@ import java.io.IOException;
 
 public class ConfigImp implements Config {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigImp.class);
-
-    public static final String CONFIG_CLASSPATH_1 = "panshi.yaml";
-    public static final String CONFIG_CLASSPATH_2 = "panshi.yml";
-    public static final String DEFAULT_NAMESPACE = "default";
-    public static final String DEFAULT_SET = "default";
-    public static final String CONFIG_LOCATION_ENV_PATH_KEY = "CONFIG_FILE_PATH";
+    private static final String CONFIG_CLASSPATH_1 = "panshi.yaml";
+    private static final String CONFIG_CLASSPATH_2 = "panshi.yml";
+    private static final String DEFAULT_NAMESPACE = "default";
+    private static final String DEFAULT_SET = "default";
+    private static final String CONFIG_LOCATION_ENV_PATH_KEY = "CONFIG_FILE_PATH";
     private static final String ETCD_HOST = "ETCD_HOST"; // require
     private static final String ETCD_PORT = "ETCD_PORT"; // require
     private static final String ETCD_NAMESPACE = "ETCD_NAMESPACE"; // optional
