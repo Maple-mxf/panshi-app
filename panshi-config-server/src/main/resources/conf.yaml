@@ -1,6 +1,0 @@
-etcdClusters:
-  - etcd://localhost:2379
-
-accounts:
-  - account: admin
-    password: admin

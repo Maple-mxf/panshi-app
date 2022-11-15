@@ -62,12 +62,12 @@ tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
 
-project("panshi-config-server") {
-    group = "io.panshi.config.server"
+project("config-provider") {
+    group = "io.panshi.config.provider"
     version = "1.0"
 
     dependencies {
-        implementation(project(":panshi-proto"))
+        implementation(project(":protocol"))
         implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
@@ -76,11 +76,11 @@ project("panshi-config-server") {
     }
 }
 
-project("panshi-config-client") {
-    group = "io.panshi.config.client"
+project("config-consumer") {
+    group = "io.panshi.config.consumer"
     version = "1.0"
     dependencies {
-        implementation(project(":panshi-proto"))
+        implementation(project(":protocol"))
         implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
@@ -88,8 +88,8 @@ project("panshi-config-client") {
     }
 }
 
-project("panshi-grpc-etcd") {
-    group = "io.panshi.grpc.etcd"
+project("discovery-core") {
+    group = "io.panshi.discovery.core"
     version = "1.0"
     dependencies {
         implementation("io.etcd:jetcd-core:0.7.3")
@@ -100,16 +100,8 @@ project("panshi-grpc-etcd") {
     }
 }
 
-project("panshi-console-server") {
-    group = "io.panshi.console.server"
-    version = "1.0"
-    dependencies {
-        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
-    }
-}
-
-project("panshi-proto") {
-    group = "io.panshi.proto"
+project("protocol") {
+    group = "io.panshi.protocol"
     version = "1.0"
 
     dependencies {}
