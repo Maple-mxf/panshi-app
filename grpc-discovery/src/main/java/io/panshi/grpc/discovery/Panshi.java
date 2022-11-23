@@ -12,7 +12,6 @@ import io.panshi.discovery.core.api.config.Config;
 import io.panshi.discovery.core.api.model.ServiceInfo;
 import io.panshi.discovery.core.imp.config.ConfigImp;
 import io.panshi.discovery.core.imp.util.JsonUtils;
-import io.panshi.grpc.discovery.resolver.PanshiNameResolverFactory;
 
 import javax.annotation.Nullable;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +23,7 @@ import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 
-import static io.panshi.grpc.discovery.constants.GrpcDiscoveryConstants.LOADBALANCER_PROVIDER;
+import static io.panshi.grpc.discovery.GrpcDiscoveryConstants.LOADBALANCER_PROVIDER;
 
 public class Panshi {
 

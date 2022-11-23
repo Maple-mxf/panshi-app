@@ -1,4 +1,4 @@
-package io.panshi.grpc.discovery.resolver;
+package io.panshi.grpc.discovery;
 
 import io.grpc.Attributes;
 import io.grpc.EquivalentAddressGroup;
@@ -9,7 +9,6 @@ import io.panshi.discovery.core.api.event.WatchServiceEvent;
 import io.panshi.discovery.core.api.event.WatchServiceListener;
 import io.panshi.discovery.core.api.model.Instance;
 import io.panshi.discovery.core.api.model.ServiceKey;
-import io.panshi.grpc.discovery.constants.GrpcDiscoveryConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

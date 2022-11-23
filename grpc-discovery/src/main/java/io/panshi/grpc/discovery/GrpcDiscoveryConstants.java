@@ -1,4 +1,4 @@
-package io.panshi.grpc.discovery.constants;
+package io.panshi.grpc.discovery;
 
 import io.grpc.Attributes;
 import io.panshi.discovery.core.api.model.Instance;

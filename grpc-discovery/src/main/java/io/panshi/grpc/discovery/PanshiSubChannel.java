@@ -5,7 +5,7 @@ import io.grpc.Attributes;
 import io.grpc.LoadBalancer;
 import io.panshi.discovery.core.api.model.Instance;
 
-public class PanshiSubChannel extends LoadBalancer.Subchannel {
+public class PanshiSubChannel extends LoadBalancer.Subchannel implements Comparable<PanshiSubChannel> {
     private final LoadBalancer.Subchannel channel;
     private final Instance instance;
 
@@ -33,5 +33,10 @@ public class PanshiSubChannel extends LoadBalancer.Subchannel {
 
     public Instance getInstance(){
         return instance;
+    }
+
+    @Override
+    public int compareTo(PanshiSubChannel o) {
+        return 0;
     }
 }

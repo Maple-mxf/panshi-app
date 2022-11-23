@@ -7,7 +7,8 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 @Data
-public class Instance {
+public class Instance implements Comparable<Instance> {
+    private String id;  // TODO  实例的ID生成策略
     private String namespace;
     private String service;
     private String set; // 可以为空，默认为default
@@ -20,5 +21,10 @@ public class Instance {
     private String version; // 服务版本
     private String protocol = "grpc"; // 服务协议 目前仅实现grpc
     private LocalDateTime registryTime;  // 服务实例注册时间
+
+    @Override
+    public int compareTo(Instance o) {
+        return 0;
+    }
 }
 

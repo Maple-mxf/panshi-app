@@ -1,4 +1,4 @@
-package io.panshi.grpc.discovery.resolver;
+package io.panshi.grpc.discovery;
 
 import io.grpc.NameResolverRegistry;
 import io.panshi.discovery.core.api.config.Config;

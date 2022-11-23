@@ -1,4 +1,4 @@
-package io.panshi.grpc.discovery.resolver;
+package io.panshi.grpc.discovery;
 
 import io.grpc.NameResolver;
 import io.grpc.NameResolverProvider;
