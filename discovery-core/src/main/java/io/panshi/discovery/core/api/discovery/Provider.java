@@ -1,8 +1,10 @@
 package io.panshi.discovery.core.api.discovery;
 
+import io.panshi.discovery.core.api.model.ServiceDefinition;
+
 public interface Provider extends DiscoveryClient {
 
-    boolean registerServiceInstance();
+    boolean registerInstance(RegisterInstanceRequest request);
 
-    boolean deregisterServiceInstance();
+    boolean deregisterInstance(ServiceDefinition serviceDefinition);
 }

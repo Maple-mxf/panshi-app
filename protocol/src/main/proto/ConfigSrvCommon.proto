@@ -12,7 +12,7 @@ enum ErrCode
   SUCCESS = 2;
 }
 
-message CommonResp {
+message CommonResponse {
   ErrCode code = 1;
   string message = 2;
   string requestId = 3;

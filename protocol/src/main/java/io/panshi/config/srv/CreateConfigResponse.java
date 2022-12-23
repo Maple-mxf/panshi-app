@@ -44,11 +44,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            io.panshi.config.srv.CommonResp.Builder subBuilder = null;
+            io.panshi.config.srv.CommonResponse.Builder subBuilder = null;
             if (cRsp_ != null) {
               subBuilder = cRsp_.toBuilder();
             }
-            cRsp_ = input.readMessage(io.panshi.config.srv.CommonResp.parser(), extensionRegistry);
+            cRsp_ = input.readMessage(io.panshi.config.srv.CommonResponse.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(cRsp_);
               cRsp_ = subBuilder.buildPartial();
@@ -95,23 +95,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CRSP_FIELD_NUMBER = 1;
-  private io.panshi.config.srv.CommonResp cRsp_;
+  private io.panshi.config.srv.CommonResponse cRsp_;
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
    */
   public boolean hasCRsp() {
     return cRsp_ != null;
   }
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
    */
-  public io.panshi.config.srv.CommonResp getCRsp() {
-    return cRsp_ == null ? io.panshi.config.srv.CommonResp.getDefaultInstance() : cRsp_;
+  public io.panshi.config.srv.CommonResponse getCRsp() {
+    return cRsp_ == null ? io.panshi.config.srv.CommonResponse.getDefaultInstance() : cRsp_;
   }
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
    */
-  public io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder() {
+  public io.panshi.config.srv.CommonResponseOrBuilder getCRspOrBuilder() {
     return getCRsp();
   }
 
@@ -482,29 +482,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private io.panshi.config.srv.CommonResp cRsp_ = null;
+    private io.panshi.config.srv.CommonResponse cRsp_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
-        io.panshi.config.srv.CommonResp, io.panshi.config.srv.CommonResp.Builder, io.panshi.config.srv.CommonRespOrBuilder> cRspBuilder_;
+        io.panshi.config.srv.CommonResponse, io.panshi.config.srv.CommonResponse.Builder, io.panshi.config.srv.CommonResponseOrBuilder> cRspBuilder_;
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
     public boolean hasCRsp() {
       return cRspBuilder_ != null || cRsp_ != null;
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
-    public io.panshi.config.srv.CommonResp getCRsp() {
+    public io.panshi.config.srv.CommonResponse getCRsp() {
       if (cRspBuilder_ == null) {
-        return cRsp_ == null ? io.panshi.config.srv.CommonResp.getDefaultInstance() : cRsp_;
+        return cRsp_ == null ? io.panshi.config.srv.CommonResponse.getDefaultInstance() : cRsp_;
       } else {
         return cRspBuilder_.getMessage();
       }
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
-    public Builder setCRsp(io.panshi.config.srv.CommonResp value) {
+    public Builder setCRsp(io.panshi.config.srv.CommonResponse value) {
       if (cRspBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -518,10 +518,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
     public Builder setCRsp(
-        io.panshi.config.srv.CommonResp.Builder builderForValue) {
+        io.panshi.config.srv.CommonResponse.Builder builderForValue) {
       if (cRspBuilder_ == null) {
         cRsp_ = builderForValue.build();
         onChanged();
@@ -532,13 +532,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
-    public Builder mergeCRsp(io.panshi.config.srv.CommonResp value) {
+    public Builder mergeCRsp(io.panshi.config.srv.CommonResponse value) {
       if (cRspBuilder_ == null) {
         if (cRsp_ != null) {
           cRsp_ =
-            io.panshi.config.srv.CommonResp.newBuilder(cRsp_).mergeFrom(value).buildPartial();
+            io.panshi.config.srv.CommonResponse.newBuilder(cRsp_).mergeFrom(value).buildPartial();
         } else {
           cRsp_ = value;
         }
@@ -550,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
     public Builder clearCRsp() {
       if (cRspBuilder_ == null) {
@@ -564,33 +564,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
-    public io.panshi.config.srv.CommonResp.Builder getCRspBuilder() {
+    public io.panshi.config.srv.CommonResponse.Builder getCRspBuilder() {
       
       onChanged();
       return getCRspFieldBuilder().getBuilder();
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
-    public io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder() {
+    public io.panshi.config.srv.CommonResponseOrBuilder getCRspOrBuilder() {
       if (cRspBuilder_ != null) {
         return cRspBuilder_.getMessageOrBuilder();
       } else {
         return cRsp_ == null ?
-            io.panshi.config.srv.CommonResp.getDefaultInstance() : cRsp_;
+            io.panshi.config.srv.CommonResponse.getDefaultInstance() : cRsp_;
       }
     }
     /**
-     * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+     * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        io.panshi.config.srv.CommonResp, io.panshi.config.srv.CommonResp.Builder, io.panshi.config.srv.CommonRespOrBuilder> 
+        io.panshi.config.srv.CommonResponse, io.panshi.config.srv.CommonResponse.Builder, io.panshi.config.srv.CommonResponseOrBuilder> 
         getCRspFieldBuilder() {
       if (cRspBuilder_ == null) {
         cRspBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.panshi.config.srv.CommonResp, io.panshi.config.srv.CommonResp.Builder, io.panshi.config.srv.CommonRespOrBuilder>(
+            io.panshi.config.srv.CommonResponse, io.panshi.config.srv.CommonResponse.Builder, io.panshi.config.srv.CommonResponseOrBuilder>(
                 getCRsp(),
                 getParentForChildren(),
                 isClean());

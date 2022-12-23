@@ -10,7 +10,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.ProxyDetector;
 import io.panshi.discovery.core.api.config.Config;
-import io.panshi.discovery.core.api.model.ServiceInfo;
+import io.panshi.discovery.core.api.model.ServiceDefinition;
 import io.panshi.discovery.core.imp.config.ConfigImp;
 
 import java.nio.charset.StandardCharsets;
@@ -34,8 +34,8 @@ public class PanshiManagedChannelBuilder {
     private final List<PanshiClientInterceptor> panshiClientInterceptors = new ArrayList<>();
     private final List<ClientInterceptor> interceptors = new ArrayList<>();
 
-    private final ServiceInfo sourceService;
-    private PanshiManagedChannelBuilder(String target,ServiceInfo sourceService){
+    private final ServiceDefinition sourceService;
+    private PanshiManagedChannelBuilder(String target, ServiceDefinition sourceService){
         this.builder = ManagedChannelBuilder.forTarget(buildUrl(target,sourceService));
         this.sourceService = sourceService;
     }
@@ -43,7 +43,7 @@ public class PanshiManagedChannelBuilder {
         return new PanshiManagedChannelBuilder(target,null);
     }
 
-    public static PanshiManagedChannelBuilder forTarget(String target,ServiceInfo sourceService){
+    public static PanshiManagedChannelBuilder forTarget(String target, ServiceDefinition sourceService){
         return new PanshiManagedChannelBuilder(target,sourceService);
     }
 
@@ -209,7 +209,7 @@ public class PanshiManagedChannelBuilder {
         return builder.build();
     }
 
-    private static String buildUrl(String target, ServiceInfo sourceService) {
+    private static String buildUrl(String target, ServiceDefinition sourceService) {
         if (Objects.isNull(sourceService)) {
             return target;
         }

@@ -24,19 +24,15 @@ public final class ConfigSrvOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\017ConfigSrv.proto\022\020io.panshi.config\032\022Con" +
-      "figSrvDto.proto2\277\003\n\tConfigSrv\022]\n\014createC" +
+      "figSrvDto.proto2\264\002\n\tConfigSrv\022]\n\014createC" +
       "onfig\022%.io.panshi.config.CreateConfigReq" +
       "uest\032&.io.panshi.config.CreateConfigResp" +
-      "onse\022o\n\022describeConfigList\022+.io.panshi.c" +
-      "onfig.DescribeConfigListRequest\032,.io.pan" +
-      "shi.config.DescribeConfigListResponse\022}\n" +
-      "\026registerClientInstance\0220.io.panshi.conf" +
-      "ig.RegisterServiceInstanceRequest\0321.io.p" +
-      "anshi.config.RegisterServiceInstanceResp" +
-      "onse\022c\n\016pullConfigList\022\'.io.panshi.confi" +
-      "g.PullConfigListRequest\032(.io.panshi.conf" +
-      "ig.PullConfigListResponseB\030\n\024io.panshi.c" +
-      "onfig.srvP\001b\006proto3"
+      "onse\022o\n\026registerClientInstance\022).io.pans" +
+      "hi.config.RegisterInstanceRequest\032*.io.p" +
+      "anshi.config.RegisterInstanceResponse\022W\n" +
+      "\nlistConfig\022#.io.panshi.config.ListConfi" +
+      "gRequest\032$.io.panshi.config.ListConfigRe" +
+      "sponseB\030\n\024io.panshi.config.srvP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

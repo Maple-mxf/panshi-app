@@ -3,27 +3,29 @@
 
 package io.panshi.config.srv;
 
-public interface PullConfigListResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.PullConfigListResponse)
+public interface RegisterInstanceResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.RegisterInstanceResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>string group = 1;</code>
    */
-  boolean hasCRsp();
+  java.lang.String getGroup();
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>string group = 1;</code>
    */
-  io.panshi.config.srv.CommonResp getCRsp();
-  /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
-   */
-  io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder();
+  com.google.protobuf.ByteString
+      getGroupBytes();
 
   /**
-   * <code>int64 lastVersion = 2;</code>
+   * <code>string set = 2;</code>
    */
-  long getLastVersion();
+  java.lang.String getSet();
+  /**
+   * <code>string set = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getSetBytes();
 
   /**
    * <code>repeated .io.panshi.config.ConfigDto configList = 3;</code>

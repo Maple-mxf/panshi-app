@@ -7,7 +7,7 @@ import io.panshi.discovery.core.api.event.WatchServiceListener;
 import io.panshi.discovery.core.api.exception.PanshiException;
 import io.panshi.discovery.core.api.model.Instance;
 import io.panshi.discovery.core.api.model.RpcInvokeResult;
-import io.panshi.discovery.core.api.model.ServiceInfo;
+import io.panshi.discovery.core.api.model.ServiceDefinition;
 import io.panshi.discovery.core.api.model.ServiceKey;
 import io.panshi.discovery.core.api.repo.InstanceRepository;
 import io.panshi.discovery.core.api.repo.RepositoryFactory;
@@ -104,10 +104,10 @@ public class ConsumerImp implements Consumer {
         @Override
         public void handle(WatchServiceEvent event) {
             if (WatchServiceEvent.Type.REGISTER.equals(event.getType())) {
-                ServiceInfo serviceInfo = new ServiceInfo();
-                serviceInfo.setNamespace(event.getInstance().getNamespace());
-                serviceInfo.setService(event.getInstance().getService());
-                serviceInfo.setSet(event.getInstance().getSet());
+                ServiceDefinition serviceDefinition = new ServiceDefinition();
+                serviceDefinition.setNamespace(event.getInstance().getNamespace());
+                serviceDefinition.setService(event.getInstance().getService());
+                serviceDefinition.setSet(event.getInstance().getSet());
 
                 ServiceKey serviceKey = new ServiceKey();
                 serviceKey.setNamespace(event.getInstance().getNamespace());

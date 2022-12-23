@@ -10,6 +10,6 @@ public class RpcInvokeResult {
     private String errorText;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private ServiceInfo serviceInfo;
+    private ServiceDefinition serviceDefinition;
     private Instance destInstance;
 }

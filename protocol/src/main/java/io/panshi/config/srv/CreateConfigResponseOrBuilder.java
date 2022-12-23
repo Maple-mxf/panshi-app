@@ -8,17 +8,17 @@ public interface CreateConfigResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
    */
   boolean hasCRsp();
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
    */
-  io.panshi.config.srv.CommonResp getCRsp();
+  io.panshi.config.srv.CommonResponse getCRsp();
   /**
-   * <code>.io.panshi.config.CommonResp cRsp = 1;</code>
+   * <code>.io.panshi.config.CommonResponse cRsp = 1;</code>
    */
-  io.panshi.config.srv.CommonRespOrBuilder getCRspOrBuilder();
+  io.panshi.config.srv.CommonResponseOrBuilder getCRspOrBuilder();
 
   /**
    * <code>string id = 2;</code>

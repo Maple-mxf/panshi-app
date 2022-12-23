@@ -9,7 +9,7 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.NameResolver;
 import io.grpc.ProxyDetector;
 import io.panshi.discovery.core.api.config.Config;
-import io.panshi.discovery.core.api.model.ServiceInfo;
+import io.panshi.discovery.core.api.model.ServiceDefinition;
 import io.panshi.discovery.core.imp.config.ConfigImp;
 import io.panshi.discovery.core.imp.util.JsonUtils;
 
@@ -39,9 +39,9 @@ public class Panshi {
 
     private final List<ClientInterceptor> interceptors = new ArrayList<>();
 
-    private final ServiceInfo sourceService;
+    private final ServiceDefinition sourceService;
 
-    private Panshi(String target, ServiceInfo sourceService) {
+    private Panshi(String target, ServiceDefinition sourceService) {
         this.builder = ManagedChannelBuilder.forTarget(buildUrl(target, sourceService));
         this.sourceService = sourceService;
     }
@@ -50,7 +50,7 @@ public class Panshi {
         return new Panshi(target, null);
     }
 
-    public static Panshi forTarget(String target, ServiceInfo sourceService) {
+    public static Panshi forTarget(String target, ServiceDefinition sourceService) {
         return new Panshi(target, sourceService);
     }
 
@@ -255,7 +255,7 @@ public class Panshi {
         return builder.build();
     }
 
-    private static String buildUrl(String target, ServiceInfo sourceService) {
+    private static String buildUrl(String target, ServiceDefinition sourceService) {
         if (Objects.isNull(sourceService)) {
             return target;
         }

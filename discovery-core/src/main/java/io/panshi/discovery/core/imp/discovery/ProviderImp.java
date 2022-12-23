@@ -2,11 +2,13 @@ package io.panshi.discovery.core.imp.discovery;
 
 import io.panshi.discovery.core.api.config.Config;
 import io.panshi.discovery.core.api.discovery.Provider;
+import io.panshi.discovery.core.api.discovery.RegisterInstanceRequest;
 import io.panshi.discovery.core.api.exception.ErrorCode;
 import io.panshi.discovery.core.api.exception.PanshiException;
 import io.panshi.discovery.core.api.model.Instance;
 import io.panshi.discovery.core.api.model.Namespace;
 import io.panshi.discovery.core.api.model.Service;
+import io.panshi.discovery.core.api.model.ServiceDefinition;
 import io.panshi.discovery.core.api.repo.InstanceRepository;
 import io.panshi.discovery.core.api.repo.LockRepository;
 import io.panshi.discovery.core.api.repo.NamespaceRepository;
@@ -14,58 +16,45 @@ import io.panshi.discovery.core.api.repo.RepositoryFactory;
 import io.panshi.discovery.core.api.repo.ServiceRepository;
 import io.panshi.discovery.core.imp.repo.InstanceRepositoryImp;
 import io.panshi.discovery.core.imp.repo.RepositoryFactoryImp;
+import io.panshi.discovery.core.imp.util.NetworkHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
 
+
+// TODO provider api不应该具有诸多状态属性
 public class ProviderImp implements Provider {
-    private final RepositoryFactory repositoryFactory = new RepositoryFactoryImp(null);
-    private final InstanceRepository instanceRepository = repositoryFactory.getInstanceRepository();
-    private final NamespaceRepository namespaceRepository = repositoryFactory.getNamespaceRepository();
-    private final ServiceRepository serviceRepository = repositoryFactory.getServiceRepository();
-    private final LockRepository lockRepository = repositoryFactory.getLockRepository();
+    private final InstanceRepository instanceRepository ;
+    private final NamespaceRepository namespaceRepository  ;
+    private final ServiceRepository serviceRepository ;
+    private final LockRepository lockRepository ;
 
-    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
     private static final Logger LOGGER = LoggerFactory.getLogger(InstanceRepositoryImp.class);
-    private final AtomicBoolean running = new AtomicBoolean(false);
-    private final String namespace;
-    private final String service;
-    // default value  = "default"
-    private final String set;
-    private final Instance instance;
 
     public ProviderImp(Config config) throws PanshiException {
-        this.namespace = config.getNamespace();
-        this.service = config.getApplicationName();
-        this.set = config.getSet();
 
-        this.instance = new Instance();
-        this.instance.setNamespace(namespace);
-        this.instance.setSet(set);
-        this.instance.setService(service);
-//        this.instance.setIp(config.get);
+        RepositoryFactory repositoryFactory = new RepositoryFactoryImp(config);
+        this.instanceRepository = repositoryFactory.getInstanceRepository();
+        this.namespaceRepository = repositoryFactory.getNamespaceRepository();
+        this.serviceRepository = repositoryFactory.getServiceRepository();
+        this.lockRepository = repositoryFactory.getLockRepository();
     }
 
     @Override
-    public boolean registerServiceInstance() {
-        if (this.running.get()){
-            LOGGER.warn("provider already running");
-            return false;
-        }
+    public boolean registerInstance(RegisterInstanceRequest registerInstanceRequest) {
+
+
 
         // 1 check namespace
         Namespace ns = new Namespace();
-        ns.setName(instance.getNamespace());
+        ns.setName(registerInstanceRequest.getNamespace());
         ns.setCreateTime(LocalDateTime.now());
         try {
-            boolean exist = namespaceRepository.exist(instance.getNamespace());
+            boolean exist = namespaceRepository.exist(registerInstanceRequest.getNamespace());
             if (!exist){
                 // 1 lock
-                String lockKey = lockRepository.lock(String.format("create_ns_%s", instance.getNamespace()), 5);
+                String lockKey = lockRepository.lock(String.format("create_ns_%s", registerInstanceRequest.getNamespace()), 5);
                 // 2 create namespace
                 namespaceRepository.putNamespace(ns);
                 // 3 unlock
@@ -75,7 +64,7 @@ public class ProviderImp implements Provider {
             e.printStackTrace();
             LOGGER.error("");
             try {
-                boolean exist = namespaceRepository.exist(instance.getNamespace());
+                boolean exist = namespaceRepository.exist(registerInstanceRequest.getNamespace());
                 if (!exist) throw PanshiException.newError(ErrorCode.UNKNOWN_ERROR,"namespace create error");
             } catch (PanshiException ex) {
                 throw new IllegalStateException(ex.formatMessage());
@@ -85,8 +74,9 @@ public class ProviderImp implements Provider {
         // 2 check service
         Service srv = new Service();
         srv.setNamespace(ns.getName());
-        srv.setName(service);
-        srv.setSet(set);
+        srv.setName(registerInstanceRequest.getService());
+        srv.setApplication(registerInstanceRequest.getApplication());
+        srv.setSet(registerInstanceRequest.getSet());
         srv.setCreateTime(LocalDateTime.now());
         try {
             boolean exist = serviceRepository.exist(srv);
@@ -111,6 +101,15 @@ public class ProviderImp implements Provider {
         }
 
         // 3 register info
+        Instance instance = new Instance();
+        instance.setNamespace(registerInstanceRequest.getNamespace());
+        instance.setService(registerInstanceRequest.getService());
+        instance.setSet(registerInstanceRequest.getSet());
+        instance.setHost(NetworkHelper.getLocalHost());
+        instance.setPort(registerInstanceRequest.getPort());
+        instance.setVersion(registerInstanceRequest.getVersion());
+        instance.setWeight(registerInstanceRequest.getWeight()); // TODO 权重设置
+
         try{
             instanceRepository.putInstanceInfo(instance);
             return true;
@@ -124,10 +123,11 @@ public class ProviderImp implements Provider {
     }
 
     @Override
-    public boolean deregisterServiceInstance() {
+    public boolean deregisterInstance(ServiceDefinition serviceDefinition) {
         instanceRepository.stop();
         return true;
     }
+
 
     @Override
     public void close() throws Exception {
@@ -136,11 +136,7 @@ public class ProviderImp implements Provider {
 
     @Override
     public void start() {
-        // 注册服务实例
-        if (registerServiceInstance() && this.running.compareAndSet(false,true)){
-            LOGGER.info("provider init success, namespace {} service {} set {} ",
-                    namespace,service,set);
-        }
+
     }
 
     @Override

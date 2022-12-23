@@ -59,62 +59,30 @@ public final class ConfigSrvGrpc {
      return getCreateConfigMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.panshi.config.srv.DescribeConfigListRequest,
-      io.panshi.config.srv.DescribeConfigListResponse> getDescribeConfigListMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "describeConfigList",
-      requestType = io.panshi.config.srv.DescribeConfigListRequest.class,
-      responseType = io.panshi.config.srv.DescribeConfigListResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.panshi.config.srv.DescribeConfigListRequest,
-      io.panshi.config.srv.DescribeConfigListResponse> getDescribeConfigListMethod() {
-    io.grpc.MethodDescriptor<io.panshi.config.srv.DescribeConfigListRequest, io.panshi.config.srv.DescribeConfigListResponse> getDescribeConfigListMethod;
-    if ((getDescribeConfigListMethod = ConfigSrvGrpc.getDescribeConfigListMethod) == null) {
-      synchronized (ConfigSrvGrpc.class) {
-        if ((getDescribeConfigListMethod = ConfigSrvGrpc.getDescribeConfigListMethod) == null) {
-          ConfigSrvGrpc.getDescribeConfigListMethod = getDescribeConfigListMethod = 
-              io.grpc.MethodDescriptor.<io.panshi.config.srv.DescribeConfigListRequest, io.panshi.config.srv.DescribeConfigListResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "io.panshi.config.ConfigSrv", "describeConfigList"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.panshi.config.srv.DescribeConfigListRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.panshi.config.srv.DescribeConfigListResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new ConfigSrvMethodDescriptorSupplier("describeConfigList"))
-                  .build();
-          }
-        }
-     }
-     return getDescribeConfigListMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<io.panshi.config.srv.RegisterServiceInstanceRequest,
-      io.panshi.config.srv.RegisterServiceInstanceResponse> getRegisterClientInstanceMethod;
+  private static volatile io.grpc.MethodDescriptor<io.panshi.config.srv.RegisterInstanceRequest,
+      io.panshi.config.srv.RegisterInstanceResponse> getRegisterClientInstanceMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "registerClientInstance",
-      requestType = io.panshi.config.srv.RegisterServiceInstanceRequest.class,
-      responseType = io.panshi.config.srv.RegisterServiceInstanceResponse.class,
+      requestType = io.panshi.config.srv.RegisterInstanceRequest.class,
+      responseType = io.panshi.config.srv.RegisterInstanceResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.panshi.config.srv.RegisterServiceInstanceRequest,
-      io.panshi.config.srv.RegisterServiceInstanceResponse> getRegisterClientInstanceMethod() {
-    io.grpc.MethodDescriptor<io.panshi.config.srv.RegisterServiceInstanceRequest, io.panshi.config.srv.RegisterServiceInstanceResponse> getRegisterClientInstanceMethod;
+  public static io.grpc.MethodDescriptor<io.panshi.config.srv.RegisterInstanceRequest,
+      io.panshi.config.srv.RegisterInstanceResponse> getRegisterClientInstanceMethod() {
+    io.grpc.MethodDescriptor<io.panshi.config.srv.RegisterInstanceRequest, io.panshi.config.srv.RegisterInstanceResponse> getRegisterClientInstanceMethod;
     if ((getRegisterClientInstanceMethod = ConfigSrvGrpc.getRegisterClientInstanceMethod) == null) {
       synchronized (ConfigSrvGrpc.class) {
         if ((getRegisterClientInstanceMethod = ConfigSrvGrpc.getRegisterClientInstanceMethod) == null) {
           ConfigSrvGrpc.getRegisterClientInstanceMethod = getRegisterClientInstanceMethod = 
-              io.grpc.MethodDescriptor.<io.panshi.config.srv.RegisterServiceInstanceRequest, io.panshi.config.srv.RegisterServiceInstanceResponse>newBuilder()
+              io.grpc.MethodDescriptor.<io.panshi.config.srv.RegisterInstanceRequest, io.panshi.config.srv.RegisterInstanceResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "io.panshi.config.ConfigSrv", "registerClientInstance"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.panshi.config.srv.RegisterServiceInstanceRequest.getDefaultInstance()))
+                  io.panshi.config.srv.RegisterInstanceRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.panshi.config.srv.RegisterServiceInstanceResponse.getDefaultInstance()))
+                  io.panshi.config.srv.RegisterInstanceResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new ConfigSrvMethodDescriptorSupplier("registerClientInstance"))
                   .build();
           }
@@ -123,36 +91,36 @@ public final class ConfigSrvGrpc {
      return getRegisterClientInstanceMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.panshi.config.srv.PullConfigListRequest,
-      io.panshi.config.srv.PullConfigListResponse> getPullConfigListMethod;
+  private static volatile io.grpc.MethodDescriptor<io.panshi.config.srv.ListConfigRequest,
+      io.panshi.config.srv.ListConfigResponse> getListConfigMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "pullConfigList",
-      requestType = io.panshi.config.srv.PullConfigListRequest.class,
-      responseType = io.panshi.config.srv.PullConfigListResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "listConfig",
+      requestType = io.panshi.config.srv.ListConfigRequest.class,
+      responseType = io.panshi.config.srv.ListConfigResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.panshi.config.srv.PullConfigListRequest,
-      io.panshi.config.srv.PullConfigListResponse> getPullConfigListMethod() {
-    io.grpc.MethodDescriptor<io.panshi.config.srv.PullConfigListRequest, io.panshi.config.srv.PullConfigListResponse> getPullConfigListMethod;
-    if ((getPullConfigListMethod = ConfigSrvGrpc.getPullConfigListMethod) == null) {
+  public static io.grpc.MethodDescriptor<io.panshi.config.srv.ListConfigRequest,
+      io.panshi.config.srv.ListConfigResponse> getListConfigMethod() {
+    io.grpc.MethodDescriptor<io.panshi.config.srv.ListConfigRequest, io.panshi.config.srv.ListConfigResponse> getListConfigMethod;
+    if ((getListConfigMethod = ConfigSrvGrpc.getListConfigMethod) == null) {
       synchronized (ConfigSrvGrpc.class) {
-        if ((getPullConfigListMethod = ConfigSrvGrpc.getPullConfigListMethod) == null) {
-          ConfigSrvGrpc.getPullConfigListMethod = getPullConfigListMethod = 
-              io.grpc.MethodDescriptor.<io.panshi.config.srv.PullConfigListRequest, io.panshi.config.srv.PullConfigListResponse>newBuilder()
+        if ((getListConfigMethod = ConfigSrvGrpc.getListConfigMethod) == null) {
+          ConfigSrvGrpc.getListConfigMethod = getListConfigMethod = 
+              io.grpc.MethodDescriptor.<io.panshi.config.srv.ListConfigRequest, io.panshi.config.srv.ListConfigResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "io.panshi.config.ConfigSrv", "pullConfigList"))
+                  "io.panshi.config.ConfigSrv", "listConfig"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.panshi.config.srv.PullConfigListRequest.getDefaultInstance()))
+                  io.panshi.config.srv.ListConfigRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.panshi.config.srv.PullConfigListResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new ConfigSrvMethodDescriptorSupplier("pullConfigList"))
+                  io.panshi.config.srv.ListConfigResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ConfigSrvMethodDescriptorSupplier("listConfig"))
                   .build();
           }
         }
      }
-     return getPullConfigListMethod;
+     return getListConfigMethod;
   }
 
   /**
@@ -194,21 +162,11 @@ public final class ConfigSrvGrpc {
 
     /**
      * <pre>
-     * 查询配置列表
-     * </pre>
-     */
-    public void describeConfigList(io.panshi.config.srv.DescribeConfigListRequest request,
-        io.grpc.stub.StreamObserver<io.panshi.config.srv.DescribeConfigListResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getDescribeConfigListMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
      * 注册服务实例
      * </pre>
      */
-    public void registerClientInstance(io.panshi.config.srv.RegisterServiceInstanceRequest request,
-        io.grpc.stub.StreamObserver<io.panshi.config.srv.RegisterServiceInstanceResponse> responseObserver) {
+    public void registerClientInstance(io.panshi.config.srv.RegisterInstanceRequest request,
+        io.grpc.stub.StreamObserver<io.panshi.config.srv.RegisterInstanceResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getRegisterClientInstanceMethod(), responseObserver);
     }
 
@@ -217,9 +175,9 @@ public final class ConfigSrvGrpc {
      * 拉取配置
      * </pre>
      */
-    public void pullConfigList(io.panshi.config.srv.PullConfigListRequest request,
-        io.grpc.stub.StreamObserver<io.panshi.config.srv.PullConfigListResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getPullConfigListMethod(), responseObserver);
+    public void listConfig(io.panshi.config.srv.ListConfigRequest request,
+        io.grpc.stub.StreamObserver<io.panshi.config.srv.ListConfigResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getListConfigMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -232,26 +190,19 @@ public final class ConfigSrvGrpc {
                 io.panshi.config.srv.CreateConfigResponse>(
                   this, METHODID_CREATE_CONFIG)))
           .addMethod(
-            getDescribeConfigListMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                io.panshi.config.srv.DescribeConfigListRequest,
-                io.panshi.config.srv.DescribeConfigListResponse>(
-                  this, METHODID_DESCRIBE_CONFIG_LIST)))
-          .addMethod(
             getRegisterClientInstanceMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                io.panshi.config.srv.RegisterServiceInstanceRequest,
-                io.panshi.config.srv.RegisterServiceInstanceResponse>(
+                io.panshi.config.srv.RegisterInstanceRequest,
+                io.panshi.config.srv.RegisterInstanceResponse>(
                   this, METHODID_REGISTER_CLIENT_INSTANCE)))
           .addMethod(
-            getPullConfigListMethod(),
+            getListConfigMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                io.panshi.config.srv.PullConfigListRequest,
-                io.panshi.config.srv.PullConfigListResponse>(
-                  this, METHODID_PULL_CONFIG_LIST)))
+                io.panshi.config.srv.ListConfigRequest,
+                io.panshi.config.srv.ListConfigResponse>(
+                  this, METHODID_LIST_CONFIG)))
           .build();
     }
   }
@@ -287,22 +238,11 @@ public final class ConfigSrvGrpc {
 
     /**
      * <pre>
-     * 查询配置列表
-     * </pre>
-     */
-    public void describeConfigList(io.panshi.config.srv.DescribeConfigListRequest request,
-        io.grpc.stub.StreamObserver<io.panshi.config.srv.DescribeConfigListResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getDescribeConfigListMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 注册服务实例
      * </pre>
      */
-    public void registerClientInstance(io.panshi.config.srv.RegisterServiceInstanceRequest request,
-        io.grpc.stub.StreamObserver<io.panshi.config.srv.RegisterServiceInstanceResponse> responseObserver) {
+    public void registerClientInstance(io.panshi.config.srv.RegisterInstanceRequest request,
+        io.grpc.stub.StreamObserver<io.panshi.config.srv.RegisterInstanceResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRegisterClientInstanceMethod(), getCallOptions()), request, responseObserver);
     }
@@ -312,10 +252,10 @@ public final class ConfigSrvGrpc {
      * 拉取配置
      * </pre>
      */
-    public void pullConfigList(io.panshi.config.srv.PullConfigListRequest request,
-        io.grpc.stub.StreamObserver<io.panshi.config.srv.PullConfigListResponse> responseObserver) {
+    public void listConfig(io.panshi.config.srv.ListConfigRequest request,
+        io.grpc.stub.StreamObserver<io.panshi.config.srv.ListConfigResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getPullConfigListMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getListConfigMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -349,20 +289,10 @@ public final class ConfigSrvGrpc {
 
     /**
      * <pre>
-     * 查询配置列表
-     * </pre>
-     */
-    public io.panshi.config.srv.DescribeConfigListResponse describeConfigList(io.panshi.config.srv.DescribeConfigListRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getDescribeConfigListMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
      * 注册服务实例
      * </pre>
      */
-    public io.panshi.config.srv.RegisterServiceInstanceResponse registerClientInstance(io.panshi.config.srv.RegisterServiceInstanceRequest request) {
+    public io.panshi.config.srv.RegisterInstanceResponse registerClientInstance(io.panshi.config.srv.RegisterInstanceRequest request) {
       return blockingUnaryCall(
           getChannel(), getRegisterClientInstanceMethod(), getCallOptions(), request);
     }
@@ -372,9 +302,9 @@ public final class ConfigSrvGrpc {
      * 拉取配置
      * </pre>
      */
-    public io.panshi.config.srv.PullConfigListResponse pullConfigList(io.panshi.config.srv.PullConfigListRequest request) {
+    public io.panshi.config.srv.ListConfigResponse listConfig(io.panshi.config.srv.ListConfigRequest request) {
       return blockingUnaryCall(
-          getChannel(), getPullConfigListMethod(), getCallOptions(), request);
+          getChannel(), getListConfigMethod(), getCallOptions(), request);
     }
   }
 
@@ -409,22 +339,11 @@ public final class ConfigSrvGrpc {
 
     /**
      * <pre>
-     * 查询配置列表
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<io.panshi.config.srv.DescribeConfigListResponse> describeConfigList(
-        io.panshi.config.srv.DescribeConfigListRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getDescribeConfigListMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * 注册服务实例
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.panshi.config.srv.RegisterServiceInstanceResponse> registerClientInstance(
-        io.panshi.config.srv.RegisterServiceInstanceRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.panshi.config.srv.RegisterInstanceResponse> registerClientInstance(
+        io.panshi.config.srv.RegisterInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getRegisterClientInstanceMethod(), getCallOptions()), request);
     }
@@ -434,17 +353,16 @@ public final class ConfigSrvGrpc {
      * 拉取配置
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.panshi.config.srv.PullConfigListResponse> pullConfigList(
-        io.panshi.config.srv.PullConfigListRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.panshi.config.srv.ListConfigResponse> listConfig(
+        io.panshi.config.srv.ListConfigRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getPullConfigListMethod(), getCallOptions()), request);
+          getChannel().newCall(getListConfigMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_CREATE_CONFIG = 0;
-  private static final int METHODID_DESCRIBE_CONFIG_LIST = 1;
-  private static final int METHODID_REGISTER_CLIENT_INSTANCE = 2;
-  private static final int METHODID_PULL_CONFIG_LIST = 3;
+  private static final int METHODID_REGISTER_CLIENT_INSTANCE = 1;
+  private static final int METHODID_LIST_CONFIG = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -467,17 +385,13 @@ public final class ConfigSrvGrpc {
           serviceImpl.createConfig((io.panshi.config.srv.CreateConfigRequest) request,
               (io.grpc.stub.StreamObserver<io.panshi.config.srv.CreateConfigResponse>) responseObserver);
           break;
-        case METHODID_DESCRIBE_CONFIG_LIST:
-          serviceImpl.describeConfigList((io.panshi.config.srv.DescribeConfigListRequest) request,
-              (io.grpc.stub.StreamObserver<io.panshi.config.srv.DescribeConfigListResponse>) responseObserver);
-          break;
         case METHODID_REGISTER_CLIENT_INSTANCE:
-          serviceImpl.registerClientInstance((io.panshi.config.srv.RegisterServiceInstanceRequest) request,
-              (io.grpc.stub.StreamObserver<io.panshi.config.srv.RegisterServiceInstanceResponse>) responseObserver);
+          serviceImpl.registerClientInstance((io.panshi.config.srv.RegisterInstanceRequest) request,
+              (io.grpc.stub.StreamObserver<io.panshi.config.srv.RegisterInstanceResponse>) responseObserver);
           break;
-        case METHODID_PULL_CONFIG_LIST:
-          serviceImpl.pullConfigList((io.panshi.config.srv.PullConfigListRequest) request,
-              (io.grpc.stub.StreamObserver<io.panshi.config.srv.PullConfigListResponse>) responseObserver);
+        case METHODID_LIST_CONFIG:
+          serviceImpl.listConfig((io.panshi.config.srv.ListConfigRequest) request,
+              (io.grpc.stub.StreamObserver<io.panshi.config.srv.ListConfigResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -541,9 +455,8 @@ public final class ConfigSrvGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ConfigSrvFileDescriptorSupplier())
               .addMethod(getCreateConfigMethod())
-              .addMethod(getDescribeConfigListMethod())
               .addMethod(getRegisterClientInstanceMethod())
-              .addMethod(getPullConfigListMethod())
+              .addMethod(getListConfigMethod())
               .build();
         }
       }

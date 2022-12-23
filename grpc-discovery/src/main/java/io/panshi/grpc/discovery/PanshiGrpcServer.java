@@ -5,6 +5,7 @@ import io.grpc.Server;
 import io.grpc.ServerServiceDefinition;
 import io.panshi.discovery.core.api.config.Config;
 import io.panshi.discovery.core.api.discovery.Provider;
+import io.panshi.discovery.core.api.discovery.RegisterInstanceRequest;
 import io.panshi.discovery.core.api.exception.PanshiException;
 import io.panshi.discovery.core.imp.discovery.ProviderImp;
 import org.slf4j.Logger;
@@ -44,7 +45,7 @@ public class PanshiGrpcServer extends Server {
     private final ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(2, r -> {
         Thread t = new Thread(r);
         t.setDaemon(true);
-        t.setName("polaris-grpc-server");
+        t.setName("panshi-grpc-server");
         return t;
     });
 
@@ -166,8 +167,11 @@ public class PanshiGrpcServer extends Server {
      */
     private void registerOne(String serviceName) {
 
-        provider.registerServiceInstance();
+        RegisterInstanceRequest request = new RegisterInstanceRequest();
+        request.setApplication(context.getApplicationName());
+        request.setNamespace();
 
+        provider.registerInstance()
     }
 
 

@@ -3,8 +3,8 @@
 
 package io.panshi.config.srv;
 
-public interface CommonRespOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.CommonResp)
+public interface CommonResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.CommonResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

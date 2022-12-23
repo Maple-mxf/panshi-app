@@ -3,8 +3,8 @@
 
 package io.panshi.config.srv;
 
-public interface RegisterServiceInstanceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:io.panshi.config.RegisterServiceInstanceRequest)
+public interface RegisterInstanceRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:io.panshi.config.RegisterInstanceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

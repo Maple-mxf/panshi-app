@@ -11,12 +11,9 @@ service ConfigSrv {
   // 创建配置信息
   rpc createConfig(CreateConfigRequest) returns (CreateConfigResponse) ;
 
-  // 查询配置列表
-  rpc describeConfigList(DescribeConfigListRequest) returns (DescribeConfigListResponse);
-
   // 注册服务实例
-  rpc registerClientInstance(RegisterServiceInstanceRequest) returns (RegisterServiceInstanceResponse);
+  rpc registerClientInstance(RegisterInstanceRequest) returns (RegisterInstanceResponse);
 
   // 拉取配置
-  rpc pullConfigList(PullConfigListRequest) returns (PullConfigListResponse);
+  rpc listConfig(ListConfigRequest) returns (ListConfigResponse);
 }

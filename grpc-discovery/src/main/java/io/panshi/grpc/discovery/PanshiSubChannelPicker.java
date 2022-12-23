@@ -5,7 +5,7 @@ import io.grpc.Attributes;
 import io.grpc.LoadBalancer;
 import io.panshi.discovery.core.api.discovery.Consumer;
 import io.panshi.discovery.core.api.model.Instance;
-import io.panshi.discovery.core.api.model.ServiceInfo;
+import io.panshi.discovery.core.api.model.ServiceDefinition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,19 +20,19 @@ public class PanshiSubChannelPicker extends LoadBalancer.SubchannelPicker {
     private final Consumer consumer;
     private final Map<Instance,PanshiSubChannel> subChannelsMap;
     private final Attributes attributes;
-    private final ServiceInfo serviceInfo;
+    private final ServiceDefinition serviceDefinition;
     private io.panshi.discovery.core.api.balancing.LoadBalancer loadBalancer;
 
     public PanshiSubChannelPicker(Consumer consumer,
                                   List<PanshiSubChannel> subChannels,
                                   Attributes attributes,
-                                  ServiceInfo serviceInfo) {
+                                  ServiceDefinition serviceDefinition) {
         this.consumer = consumer;
         this.subChannelsMap = subChannels.stream()
                 .map(t-> Maps.immutableEntry(t.getInstance(),t))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(o1,o2)->o1));
         this.attributes = attributes;
-        this.serviceInfo = serviceInfo;
+        this.serviceDefinition = serviceDefinition;
     }
 
 

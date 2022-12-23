@@ -15,14 +15,6 @@ message ConfigDto{
   int64  version = 6;
 }
 
-message DescribeConfigListResponse {
-  repeated ConfigDto configList = 1;
-}
-
-message DescribeConfigListRequest {
-  string filterKeyword = 1;
-}
-
 message CreateConfigRequest {
   string key = 1;
   string group = 2;
@@ -32,30 +24,30 @@ message CreateConfigRequest {
 };
 
 message CreateConfigResponse {
-  CommonResp cRsp = 1;
+  CommonResponse cRsp = 1;
   string id = 2;
 }
 
-message RegisterServiceInstanceRequest{
+message RegisterInstanceRequest{
   string group = 1;
   string set = 2;
   string ipAddress = 3;
 }
 
-message RegisterServiceInstanceResponse{
+message RegisterInstanceResponse{
   string group = 1;
   string set = 2;
   repeated ConfigDto configList = 3;
 }
 
-message PullConfigListRequest {
+message ListConfigRequest {
   string group = 1;
   string set = 2;
   string currentVersion = 3;
 }
 
-message PullConfigListResponse {
-  CommonResp cRsp = 1;
+message ListConfigResponse {
+  CommonResponse cRsp = 1;
   int64 lastVersion = 2;
   repeated ConfigDto configList = 3;
 }
