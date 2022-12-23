@@ -20,4 +20,24 @@ public class ClientCallInfo {
         this.targetNamespace = targetNamespace;
         this.targetService = targetService;
     }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public Instance getInstance() {
+        return instance;
+    }
+
+    public Consumer getConsumer() {
+        return consumer;
+    }
+
+    public String getTargetNamespace() {
+        return targetNamespace;
+    }
+
+    public String getTargetService() {
+        return targetService;
+    }
 }

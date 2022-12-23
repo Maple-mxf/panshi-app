@@ -30,9 +30,7 @@ public class Panshi {
     private static final Config context = ConfigImp.init();
 
     static {
-
         PanshiNameResolverFactory.init(context);
-//        PolarisNameResolverFactory.init(context);
     }
 
     private final ManagedChannelBuilder<?> builder;

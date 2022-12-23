@@ -35,8 +35,9 @@ public class PanshiSubChannel extends LoadBalancer.Subchannel implements Compara
         return instance;
     }
 
+    // TODO
     @Override
     public int compareTo(PanshiSubChannel o) {
-        return 0;
+        return this.instance.compareTo(o.instance);
     }
 }
